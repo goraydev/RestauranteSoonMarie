@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Gestor de los tipos de plato</h1>
+                    <h1>Gestor de los tipo de platos</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,16 +24,13 @@
                     <!-- Default box -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Title</h3>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearTipoPlato">
+                                Nuevo registro
+                            </button>
+                            <br><br>
+                            <label for="myInput">Buscar tipo de plato</label>
+                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
                         </div>
                         <div class="card-body">
                             Start creating your amazing application!

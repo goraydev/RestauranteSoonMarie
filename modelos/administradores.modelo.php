@@ -33,7 +33,7 @@ class ModeloAdministradores
                 echo "<td>" . $row['usuario'] . "</td>";
                 echo "<td>" . $row['categoria'] . "</td>";
                 echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
-                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
+                echo "<td>" . "<button class='btn btn-primary btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
                 echo "</tr>";
             }
         } else {
@@ -87,7 +87,7 @@ class ModeloAdministradores
                 echo "<td>" . $row['usuario'] . "</td>";
                 echo "<td>" . $row['categoria'] . "</td>";
                 echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
-                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
+                echo "<td>" . "<button class='btn btn-primary btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
                 echo "</tr>";
             }
         } else {

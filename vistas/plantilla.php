@@ -77,7 +77,6 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
                     $_GET["pagina"] == "categorias" ||
                     $_GET["pagina"] == "clientes" ||
                     $_GET["pagina"] == "detallereservas" ||
-                    $_GET["pagina"] == "empleados" ||
                     $_GET["pagina"] == "especialidades" ||
                     $_GET["pagina"] == "platos" ||
                     $_GET["pagina"] == "reservas" ||

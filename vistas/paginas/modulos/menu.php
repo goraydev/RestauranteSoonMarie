@@ -23,7 +23,7 @@
                     <a href="administradores" class="nav-link">
                         <i class="nav-icon fas fa-id-card"></i>
                         <p>
-                            Administradores
+                            Empleados
                         </p>
                     </a>
                 </li>
@@ -32,14 +32,6 @@
                         <i class="nav-icon fas fas fa-users-cog"></i>
                         <p>
                             Categorias
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="empleados" class="nav-link">
-                        <i class="nav-icon fas fa-id-badge"></i>
-                        <p>
-                            Empleados
                         </p>
                     </a>
                 </li>
