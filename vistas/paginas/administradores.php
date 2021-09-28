@@ -27,20 +27,11 @@
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearAdministrador">
                                 Nuevo registro
                             </button>
-
+                            <br><br>
+                            <label for="myInput">Buscar empleado</label>
+                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
                         </div>
                         <br>
-                        <form class="row g-2" method="POST" action="">
-                            <div class="col-auto">
-                                <label for="campo" class="visually-hidden"></label>
-                                <input type="text" class="form-control" id="campo" name="campo" placeholder="Empleado">
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn  btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#busquedaAdmin">
-                                    Buscar
-                                </button>
-                            </div>
-                        </form>
 
                         <div class="card-body">
                             <table class="table table-bordered table-striped dt-responsive tablaAdministradores" width="100%" id="TablaAdministradores">
@@ -54,7 +45,7 @@
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                     <tr>
                                         <?php
                                         $mostrarAdministrador = new ControladorAdministradores();
@@ -73,6 +64,19 @@
     </section>
     <!-- /.content -->
 </div>
+
+<!-- Para realizar la búsqueda de los empleados -->
+<script>
+    $(document).ready(function() {
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
 
 <!-- Para la ventana modal - CREAR ADMNISTRADORES-->
 
