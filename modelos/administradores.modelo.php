@@ -20,4 +20,80 @@ class ModeloAdministradores
             return $stmt->fetchAll();
         }
     }
+
+    static public function mdlMostrarTabla($mysqli, $tabla)
+    {
+        $sql = "SELECT * FROM $tabla";
+        $respuesta = $mysqli->query($sql);
+        if ($respuesta) {
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row['DNI'] . "</td>";
+                echo "<td>" . $row['Empleado'] . "</td>";
+                echo "<td>" . $row['usuario'] . "</td>";
+                echo "<td>" . $row['categoria'] . "</td>";
+                echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
+                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "ERROR, NO S EPUDO MOSTRar la tabla";
+        }
+    }
+    static public function mdlMostrarOpciones($mysqli, $tabla)
+    {
+        $sql = "SELECT * FROM $tabla";
+        $respuesta = $mysqli->query($sql);
+        if ($respuesta) {
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo "<option value='" . $row['codCategoria'] . "'>" . $row['categoria'] . "</option>";
+            }
+        } else {
+            echo "sin categorias";
+        }
+    }
+    static public function mdlMostrarBusqueda($mysqli, $tabla, $campo)
+    {
+        $sql = "CALL p_busquedaEmpleado('$campo');";
+        $respuesta = $mysqli->query($sql);
+        if ($respuesta) {
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row['DNI'] . "</td>";
+                echo "<td>" . $row['Empleado'] . "</td>";
+                echo "<td>" . $row['usuario'] . "</td>";
+                echo "<td>" . $row['categoria'] . "</td>";
+                echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
+                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "ERROR, NO S EPUDO MOSTRar la tabla";
+        }
+    }
+
+
+    /*Registro de Administradores*/
+    static public function mdlRegistroAdministradores($mysqli, $sql)
+    {
+        $respuesta = $mysqli->query($sql);
+
+        if ($respuesta) {
+            return "ok";
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row['DNI'] . "</td>";
+                echo "<td>" . $row['Empleado'] . "</td>";
+                echo "<td>" . $row['usuario'] . "</td>";
+                echo "<td>" . $row['categoria'] . "</td>";
+                echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
+                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "ERROR, NO S EPUDO MOSTRar la tabla";
+        }
+
+        echo $respuesta;
+    }
 }

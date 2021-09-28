@@ -8,7 +8,7 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="vistas/img/plantilla/6.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="vistas/img/plantilla/cooking.svg" type="image/x-icon">
     <title>Restaurante Soon Marie</title>
 
     <!-- Vinculos CSS -->
@@ -40,6 +40,12 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
 
     <!-- AdminLTE App -->
     <script src="vistas/js/plugins/adminlte.min.js"></script>
+    <!-- SWEET ALERT 2 -->
+    <!-- https://sweetalert2.github.io/ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- DataTables -->
     <script src="vistas/js/plugins/jquery.dataTables.min.js"></script>
@@ -77,6 +83,7 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
                     $_GET["pagina"] == "reservas" ||
                     $_GET["pagina"] == "tipoPlatos" ||
                     $_GET["pagina"] == "turno" ||
+                    $_GET["pagina"] == "guardar" ||
                     $_GET["pagina"] == "salir"
 
                 ) {

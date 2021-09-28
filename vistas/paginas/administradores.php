@@ -29,11 +29,23 @@
                             </button>
 
                         </div>
+                        <br>
+                        <form class="row g-2" method="POST" action="">
+                            <div class="col-auto">
+                                <label for="campo" class="visually-hidden"></label>
+                                <input type="text" class="form-control" id="campo" name="campo" placeholder="Empleado">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn  btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#busquedaAdmin">
+                                    Buscar
+                                </button>
+                            </div>
+                        </form>
+
                         <div class="card-body">
-                            <table class="table table-bordered table-striped dt-responsive tablaAdministradores" width="100%">
+                            <table class="table table-bordered table-striped dt-responsive tablaAdministradores" width="100%" id="TablaAdministradores">
                                 <thead>
                                     <tr>
-                                        <th style="width:10px">#</th>
                                         <th>DNI</th>
                                         <th>Empleado</th>
                                         <th>usuario</th>
@@ -43,18 +55,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr>
-                                        <td>1</td>
-                                        <td>75182627</td>
-                                        <td>Valeria Vendizú Castillo</td>
-                                        <td>Valeria</td>
-                                        <td>gerente</td>
-                                        <td><button class="btn btn-success btn-sm">Activo</button></td>
-                                        <td>
-                                            <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt text-white"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                                        </td>
-                                    </tr> -->
+                                    <tr>
+                                        <?php
+                                        $mostrarAdministrador = new ControladorAdministradores();
+                                        $mostrarAdministrador->ctrMostrarAdministradores();
+
+                                        ?>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -67,12 +74,12 @@
     <!-- /.content -->
 </div>
 
-<!-- Para la ventana modal - CREAR ADMNISTRADOS-->
+<!-- Para la ventana modal - CREAR ADMNISTRADORES-->
 
 <div class="modal fade" id="crearAdministrador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="" method="post">
+            <form action="" method="POST">
                 <div class="modal-header bg-warning">
                     <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo empleado</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -83,21 +90,21 @@
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroNombre" placeholder="Ingresa el DNI">
+                        <input type="text" class="form-control" name="registroDNI" placeholder="Ingresa el DNI" required>
                     </div>
                     <!-- Input nombre -->
                     <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroNombre" placeholder="Ingresa el nombre">
+                        <input type="text" class="form-control" name="registroNombre" placeholder="Ingresa el nombre" required>
                     </div>
                     <!-- Input apellido paterno -->
                     <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroApellidoPat" placeholder="Ingresa el apellido paterno">
+                        <input type="text" class="form-control" name="registroApellidoPat" placeholder="Ingresa el apellido paterno" required>
                     </div>
 
                     <!-- Input apellido materno -->
@@ -105,7 +112,7 @@
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroApellidoMat" placeholder="Ingresa el apellido materno">
+                        <input type="text" class="form-control" name="registroApellidoMat" placeholder="Ingresa el apellido materno" required>
                     </div>
 
                     <!-- Input telefono -->
@@ -113,7 +120,7 @@
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-mobile-alt"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular">
+                        <input type="text" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
                     </div>
 
                     <!-- Input direccion -->
@@ -121,7 +128,7 @@
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-map-marked-alt"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroDireccion" placeholder="Ingresa direccion">
+                        <input type="text" class="form-control" name="registroDireccion" placeholder="Ingresa direccion" required>
                     </div>
 
                     <!-- Input password -->
@@ -129,21 +136,33 @@
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user-lock"></span>
                         </div>
-                        <input type="password" class="form-control" name="registroDireccion" placeholder="Crea password">
+                        <input type="password" class="form-control" name="registroPassword" placeholder="Crea password" required>
                     </div>
 
+                    <!-- Seleccion de categoria -->
                     <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">
-                            <span class="fas fa-map-marked-alt"></span>
+                            <span class="fas fa-id-card-alt"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroDireccion" placeholder="Categoria">
+                        <select name="registroCategoria" id="" class="form-control" required>
+                            <option value="" disabled selected>Seleccione categoria</option>
+                            <?php
+                            $mostrarOpciones = new ControladorAdministradores();
+                            $mostrarOpciones->ctrMostrarOpciones();
+                            ?>
+                        </select>
                     </div>
 
 
                 </div>
+                <!-- Para el registro de administrador -->
+                <?php
+                $registroAdministrador = new ControladorAdministradores();
+                $registroAdministrador->ctrRegistroAdministrador();
+                ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>
