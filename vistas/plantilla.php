@@ -91,6 +91,7 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
                 } else {
 
                     include "paginas/error404.php";
+                    include "paginas/modificar.php";
                 }
             } else {
 
@@ -99,7 +100,7 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
             include "paginas/modulos/footer.php";
             ?>
         </div>
-        <script src="vistas/js/administradores.js"></script>
+        <!-- <script src="vistas/js/administradores.js"></script> -->
     </body>
 <?php endif ?>
 

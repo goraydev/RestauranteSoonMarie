@@ -24,6 +24,7 @@ class ModeloAdministradores
     static public function mdlMostrarTabla($mysqli, $tabla)
     {
         $sql = "SELECT * FROM $tabla";
+
         $respuesta = $mysqli->query($sql);
         if ($respuesta) {
             while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
@@ -33,8 +34,11 @@ class ModeloAdministradores
                 echo "<td>" . $row['usuario'] . "</td>";
                 echo "<td>" . $row['categoria'] . "</td>";
                 echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
-                echo "<td>" . "<button class='btn btn-primary btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
-                echo "</tr>";
+                echo "<td>" . "<button class='btn btn-danger btn-sm'>";
+                echo "<a data-href='eliminarAdmin.php?DNI=";
+                echo  $row['DNI'];
+                echo "'>";
+                echo "<i class='fas fa-trash-alt text-white'></i>" . "</a>" . "</button>";
             }
         } else {
             echo "ERROR, NO S EPUDO MOSTRar la tabla";
@@ -50,25 +54,6 @@ class ModeloAdministradores
             }
         } else {
             echo "sin categorias";
-        }
-    }
-    static public function mdlMostrarBusqueda($mysqli, $tabla, $campo)
-    {
-        $sql = "CALL p_busquedaEmpleado('$campo');";
-        $respuesta = $mysqli->query($sql);
-        if ($respuesta) {
-            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
-                echo "<tr>";
-                echo "<td>" . $row['DNI'] . "</td>";
-                echo "<td>" . $row['Empleado'] . "</td>";
-                echo "<td>" . $row['usuario'] . "</td>";
-                echo "<td>" . $row['categoria'] . "</td>";
-                echo "<td>" . "<button class='btn btn-success btn-sm'>Activo</button></td>" . "</td>";
-                echo "<td>" . "<button class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt text-white'></i></button>" . "<button class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>" . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "ERROR, NO S EPUDO MOSTRar la tabla";
         }
     }
 
@@ -95,5 +80,19 @@ class ModeloAdministradores
         }
 
         echo $respuesta;
+    }
+    /* Editar administrador */
+    static public function mdlEditarAdministradores($mysqli, $tabla, $dni)
+    {
+        $sql = "SELECT * FROM $tabla WHERE DNI = '$dni'";
+        $respuesta = $mysqli->query($sql);
+        $row = $respuesta->fetch_array(MYSQLI_ASSOC);
+        if ($respuesta) {
+            return "ok";
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo "<input type='text' class='form-control' name='editarfkPersona' value" . $row['fk_persona'] . "required>";
+                echo "<input type='text' class='form-control' name='editarfkCuenta' value" . $row['fk_idCuenta'] . "required>";
+            }
+        }
     }
 }

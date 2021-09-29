@@ -104,18 +104,4 @@ class ControladorAdministradores
 
         return $respuesta;
     }
-
-    public function ctrBusquedaAdministrador()
-    {
-        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-        if ($mysqli->connect_error) {
-            die('Error en la conexión' . $mysqli->connect_error);
-        }
-        $tabla = "v_empleados";
-        if (isset($_POST["campo"])) {
-            $campo = $_POST["campo"];
-            $respuesta = ModeloAdministradores::mdlMostrarBusqueda($mysqli, $tabla, $campo);
-            return $respuesta;
-        }
-    }
 }

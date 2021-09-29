@@ -1,2 +1,3 @@
 /* Tabla administradores */
 $(".tablaAdministradores").DataTable();
+

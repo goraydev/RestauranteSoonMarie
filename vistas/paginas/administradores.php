@@ -1,3 +1,13 @@
+<?php
+$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+if ($mysqli->connect_error) {
+    die('Error en la conexión' . $mysqli->connect_error);
+}
+
+$sql = "SELECT * FROM v_empleados";
+$resultado = $mysqli->query($sql);
+
+?>
 <div class="content-wrapper" style="min-height: 717px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -42,17 +52,24 @@
                                         <th>usuario</th>
                                         <th>Categoria</th>
                                         <th>estado</th>
-                                        <th>Acciones</th>
+                                        <th>accion</th>
                                     </tr>
                                 </thead>
                                 <tbody id="myTable">
-                                    <tr>
-                                        <?php
-                                        $mostrarAdministrador = new ControladorAdministradores();
-                                        $mostrarAdministrador->ctrMostrarAdministradores();
+                                    <?php
+                                    while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['DNI'] ?></td>
+                                            <td><?php echo $row['Empleado'] ?></td>
+                                            <td><?php echo $row['usuario'] ?></td>
+                                            <td><?php echo $row['categoria'] ?></td>
+                                            <td><button class='btn btn-success btn-sm'>Activo</button></td>
+                                            <td><button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarAdmin.php?DNI=<?php echo $row['DNI']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button></td>
 
-                                        ?>
-                                    </tr>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -64,6 +81,37 @@
     </section>
     <!-- /.content -->
 </div>
+
+<!-- Para la ventan modal de eliminar a los empleados -->
+<div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <form action="eliminar.php" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminación de Registros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('shown.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+    });
+</script>
+
+
+
 
 <!-- Para realizar la búsqueda de los empleados -->
 <script>
