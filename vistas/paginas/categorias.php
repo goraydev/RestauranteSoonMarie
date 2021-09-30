@@ -1,3 +1,12 @@
+<?php
+$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+if ($mysqli->connect_error) {
+    die('Error en la conexión' . $mysqli->connect_error);
+}
+$sql = "SELECT * FROM categorias";
+$resultado = $mysqli->query($sql);
+
+?>
 <div class="content-wrapper" style="min-height: 1761.5px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -47,8 +56,18 @@
 
                                 <tbody id="myTable">
                                     <?php
-                                    $mostrarCategorias = new ControladorCategorias();
-                                    $mostrarCategorias->ctrMostrarCategorias();
+                                    while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['codCategoria'] ?></td>
+                                            <td><?php echo $row['categoria'] ?></td>
+                                            <td>
+                                                <button class='btn btn-primary btn-sm'><a href="modificarCat.php?codCat=<?php echo $row['codCategoria']; ?>"><i class="far fa-edit text-white"></i></a></button>
+                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="DNI=<?php echo $row['codCategoria']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
+                                            </td>
+
+                                        </tr>
+                                    <?php
+                                    }
                                     ?>
                                 </tbody>
 
