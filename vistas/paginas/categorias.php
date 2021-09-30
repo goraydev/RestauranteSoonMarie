@@ -62,7 +62,7 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['categoria'] ?></td>
                                             <td>
                                                 <button class='btn btn-primary btn-sm'><a href="modificarCat.php?codCat=<?php echo $row['codCategoria']; ?>"><i class="far fa-edit text-white"></i></a></button>
-                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="DNI=<?php echo $row['codCategoria']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
+                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarCat.php?codCat=<?php echo $row['codCategoria']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
                                             </td>
 
                                         </tr>
@@ -81,6 +81,35 @@ $resultado = $mysqli->query($sql);
     </section>
     <!-- /.content -->
 </div>
+<!-- Ventana modal para eliminar -->
+<!-- Para la ventan modal de eliminar a los empleados -->
+<div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <form action="eliminarCat.php" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminación de Registros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('shown.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+    });
+</script>
+
 
 <!-- Para realizar la búsqueda de las categorias -->
 <script>
