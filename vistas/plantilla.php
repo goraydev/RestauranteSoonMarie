@@ -19,12 +19,25 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-datepicker.standalone.min.css">
+
+    <!-- jdSlider -->
+    <link rel="stylesheet" href="css/plugins/jquery.jdSlider.css">
+
+    <!-- Pano -->
+    <link rel="stylesheet" href="css/plugins/jquery.pano.css">
+
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="css/plugins/fullcalendar.min.css">
 
     <!-- Theme style AdmninLTE -->
     <link rel="stylesheet" href="vistas/css/plugins/adminlte.min.css">
 
     <!-- DataTables -->
-    <link rel="stylesheet" href="vistas/css/plugins/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="vistas/css/plugins/responsive.bootstrap.min.css">
+    <link rel="stylesheet" href="vistas/css/plugins/datatables.css">
+    <link rel="stylesheet" href="vistas/css/plugins/datatables.min.css">
 
 
 
@@ -37,9 +50,30 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- bootstrap datepicker -->
+    <!-- https://bootstrap-datepicker.readthedocs.io/en/latest/ -->
+    <script src="js/plugins/bootstrap-datepicker.min.js"></script>
+
+    <!-- https://easings.net/es# -->
+    <script src="js/plugins/jquery.easing.js"></script>
+
+    <!-- https://markgoodyear.com/labs/scrollup/ -->
+    <script src="js/plugins/scrollUP.js"></script>
+
+    <!-- jdSlider -->
+    <!-- https://www.jqueryscript.net/slider/Carousel-Slideshow-jdSlider.html -->
+    <script src="js/plugins/jquery.jdSlider-latest.js"></script>
+
+    <!-- Pano -->
+    <!-- https://www.jqueryscript.net/other/360-Degree-Panoramic-Image-Viewer-with-jQuery-Pano.html -->
+    <script src="js/plugins/jquery.pano.js"></script>
+
+    <!-- https://momentjs.com/ -->
+    <script src="js/plugins/moment.js"></script>
 
     <!-- AdminLTE App -->
     <script src="vistas/js/plugins/adminlte.min.js"></script>
+
     <!-- SWEET ALERT 2 -->
     <!-- https://sweetalert2.github.io/ -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -48,11 +82,10 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- DataTables -->
-    <script src="vistas/js/plugins/jquery.dataTables.min.js"></script>
-    <script src="vistas/js/plugins/dataTables.bootstrap4.min.js"></script>
     <script src="vistas/js/plugins/dataTables.responsive.min.js"></script>
-    <script src="vistas/js/plugins/responsive.bootstrap.min.js"></script>
-
+    <script src="vistas/js/plugins/responsive.bootstrap.min.js"></script> 
+    <script src="vistas/js/plugins/datatables.js"></script>
+    <script src="vistas/js/plugins/datatables.min.js"></script>
 
 </head>
 
