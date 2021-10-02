@@ -1,3 +1,12 @@
+<?php
+$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+if ($mysqli->connect_error) {
+    die('Error en la conexión' . $mysqli->connect_error);
+}
+$sql = "SELECT * FROM tipos";
+$resultado = $mysqli->query($sql);
+
+?>
 <div class="content-wrapper" style="min-height: 1761.5px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -33,21 +42,30 @@
 
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered table-striped dt-responsive tablaAdministradores" width="100%" id="TablaAdministradores">
+                            <table class="table table-bordered table-striped dt-responsive tablaTipodePlatos" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Código</th>
                                         <th>Tipo de plato</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="myTable">
-                                    <tr>
-                                        <?php
-                                        $mostrarTiposDeplato = new ControladorTipoDePlatos();
-                                        $mostrarTiposDeplato->ctrMostrarTipodePlatos();
-                                        ?>
-                                    </tr>
+                                    <?php
+                                    while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['codTipo'] ?></td>
+                                            <td><?php echo $row['descripcion'] ?></td>
+                                            <td>
+
+                                                <button class='btn btn-primary btn-sm'><a href="modificarTipoPlato.php?codPlato=<?php echo $row['codTipo']; ?>"><i class="far fa-edit text-white"></i></a></button>
+                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarTipoPlatos.php?codPlato=<?php echo $row['codTipo']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
+                                            </td>
+
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -59,6 +77,62 @@
     </section>
     <!-- /.content -->
 </div>
+<!-- Para la ventana modal de eliminar a las categorias -->
+<div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <form action="eliminarCat.php" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminación de Registros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('shown.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+    });
+</script>
+
+<!-- Para la ventan modal de eliminar a los tipos de platos -->
+<div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <form action="eliminarCat.php" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminación de Registros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('shown.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+    });
+</script>
+
 
 
 <!-- Para realizar la búsqueda de los tipos de plato-->

@@ -1,0 +1,1 @@
+$(".tablaCategorias").DataTable();

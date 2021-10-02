@@ -1,3 +1,12 @@
+<?php
+$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+if ($mysqli->connect_error) {
+    die('Error en la conexión' . $mysqli->connect_error);
+}
+$sql = "SELECT * FROM platos";
+$resultado = $mysqli->query($sql);
+
+?>
 <div class="content-wrapper" style="min-height: 1761.5px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,16 +33,12 @@
                     <!-- Default box -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Title</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearCategoria">
+                                Nuevo registro
+                            </button>
+                            <br><br>
+                            <label for="myInput">Buscar categoria</label>
+                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
                         </div>
                         <div class="card-body">
                             Start creating your amazing application!

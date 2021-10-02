@@ -4,8 +4,8 @@ if ($mysqli->connect_error) {
     die('Error en la conexión' . $mysqli->connect_error);
 }
 
-$codCat = $_GET['codCat'];
-$sql = "DELETE FROM categorias WHERE codCategoria = '$codCat'";
+$codPlato = $_GET['codPlato'];
+$sql = "DELETE FROM tipos WHERE codTipo = '$codPlato'";
 $resultado = $mysqli->query($sql);
 ?>
 
@@ -24,20 +24,20 @@ $resultado = $mysqli->query($sql);
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <title>Eliminar registros</title>
+    <title>Eliminar registro</title>
 </head>
 
 <body>
     <div class="container" style="display: flex; flex-direction: column;align-items: center;">
         <div class=" row">
-            <h3>Eliminar categoria</h3>
+            <h3>Eliminar tipo de plato</h3>
         </div>
         <div class="card" style="width: 18rem;">
             <img src="vistas/img/plantilla/cooking.svg" class="card-img-top" alt="...">
             <div class="card-body">
                 <?php
                 if ($resultado) { ?>
-                    <h3>categoria eliminada</h3>
+                    <h3>tipo de plato eliminado</h3>
                 <?php
                 } else { ?>
                     <h3>No se pudo eliminar</h3>
@@ -46,7 +46,7 @@ $resultado = $mysqli->query($sql);
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2">
-                        <a href="categorias" class="btn btn-primary">Regresar</a>
+                        <a href="tipoPlatos" class="btn btn-primary">Regresar</a>
                     </div>
                 </div>
             </div>

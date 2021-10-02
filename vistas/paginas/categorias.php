@@ -81,8 +81,8 @@ $resultado = $mysqli->query($sql);
     </section>
     <!-- /.content -->
 </div>
-<!-- Ventana modal para eliminar -->
-<!-- Para la ventan modal de eliminar a los empleados -->
+
+<!-- Para la ventan modal de eliminar a las categorias -->
 <div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog">
         <form action="eliminarCat.php" method="post">

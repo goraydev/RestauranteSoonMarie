@@ -100,7 +100,9 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
             include "paginas/modulos/footer.php";
             ?>
         </div>
-        <!-- <script src="vistas/js/administradores.js"></script> -->
+        <script src="vistas/js/administradores.js"></script>
+        <script src="vistas/js/categorias.js"></script>
+        <script src="vistas/js/tablaTipodePlatos.js"></script>
     </body>
 <?php endif ?>
 
