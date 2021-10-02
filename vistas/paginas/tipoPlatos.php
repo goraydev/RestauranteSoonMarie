@@ -1,8 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-if ($mysqli->connect_error) {
-    die('Error en la conexión' . $mysqli->connect_error);
-}
+require "conexion.php";
 $sql = "SELECT * FROM tipos";
 $resultado = $mysqli->query($sql);
 
@@ -36,10 +33,6 @@ $resultado = $mysqli->query($sql);
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearTipoPlato">
                                 Nuevo registro
                             </button>
-                            <br><br>
-                            <label for="myInput">Buscar tipo de plato</label>
-                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
-
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-striped dt-responsive tablaTipodePlatos" width="100%">
@@ -134,22 +127,7 @@ $resultado = $mysqli->query($sql);
 </script>
 
 
-
-<!-- Para realizar la búsqueda de los tipos de plato-->
-<script>
-    $(document).ready(function() {
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>
-
-
 <!-- Para la venta modal de crear un nuevo tipo de plato -->
-
 <div class="modal fade" id="crearTipoPlato" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -1,8 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-if ($mysqli->connect_error) {
-    die('Error en la conexión' . $mysqli->connect_error);
-}
+require "conexion.php";
 $sql = "SELECT * FROM categorias";
 $resultado = $mysqli->query($sql);
 
@@ -36,9 +33,6 @@ $resultado = $mysqli->query($sql);
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearCategoria">
                                 Nuevo registro
                             </button>
-                            <br><br>
-                            <label for="myInput">Buscar categoria</label>
-                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-striped dt-responsive tablaCategorias" width="100%">
@@ -107,19 +101,6 @@ $resultado = $mysqli->query($sql);
         $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
 
         $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-    });
-</script>
-
-
-<!-- Para realizar la búsqueda de las categorias -->
-<script>
-    $(document).ready(function() {
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
     });
 </script>
 

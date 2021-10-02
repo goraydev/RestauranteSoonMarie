@@ -1,9 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-if ($mysqli->connect_error) {
-    die('Error en la conexión' . $mysqli->connect_error);
-}
-
+require "conexion.php";
 $sql = "SELECT * FROM v_empleados";
 $resultado = $mysqli->query($sql);
 
@@ -37,9 +33,6 @@ $resultado = $mysqli->query($sql);
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearAdministrador">
                                 Nuevo registro
                             </button>
-                            <br><br>
-                            <label for="myInput">Buscar empleado</label>
-                            <input class="form-control" id="myInput" type="text" placeholder="Ingrese dato">
                         </div>
                         <br>
 
@@ -110,20 +103,6 @@ $resultado = $mysqli->query($sql);
     });
 </script>
 
-
-
-
-<!-- Para realizar la búsqueda de los empleados -->
-<script>
-    $(document).ready(function() {
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>
 
 
 <!-- Para la ventana modal - CREAR ADMNISTRADORES-->

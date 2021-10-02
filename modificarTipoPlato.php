@@ -1,8 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-if ($mysqli->connect_error) {
-    die('Error en la conexión' . $mysqli->connect_error);
-}
+require "conexion.php";
 
 $codTipoPlato = $_GET['codPlato'];
 $sql = "SELECT * FROM tipos WHERE codTipo = '$codTipoPlato'";

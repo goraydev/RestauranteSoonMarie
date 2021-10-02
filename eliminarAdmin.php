@@ -1,9 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-if ($mysqli->connect_error) {
-    die('Error en la conexión' . $mysqli->connect_error);
-}
-
+require "conexion.php";
 $DNI = $_GET['DNI'];
 $sql = "CALL p_deleteEmp('$DNI')";
 $resultado = $mysqli->query($sql);
@@ -41,7 +37,7 @@ $resultado = $mysqli->query($sql);
                     <?php
                     }
                     ?>
-                    <a href="index.php" class="btn btn-primary">Regresar</a>
+                    <a href="administradores" class="btn btn-primary">Regresar</a>
 
 
                 </div>
