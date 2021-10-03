@@ -1,8 +1,8 @@
 <?php
 require "conexion.php";
 
-$codTipoPlato = $_GET['codPlato'];
-$sql = "SELECT * FROM tipos WHERE codTipo = '$codTipoPlato'";
+$codEspecialidad = $_GET['codEsp'];
+$sql = "SELECT * FROM especialidades WHERE codEspecialidad = '$codEspecialidad'";
 $resultado = $mysqli->query($sql);
 $row = $resultado->fetch_array(MYSQLI_ASSOC);
 ?>
@@ -33,24 +33,24 @@ $row = $resultado->fetch_array(MYSQLI_ASSOC);
         <div class="card" style="width: 20rem;">
             <img src="vistas/img/plantilla/cooking.svg" class="card-img-top" alt="...">
             <div class="card-body">
-                <form class="form-horizontal" method="POST" action="updateTipoPlato.php" autocomplete="off">
+                <form class="form-horizontal" method="POST" action="updateEspecialidad.php" autocomplete="off">
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <div class="input-group-append input-group-text">
-                                <span class="fas fas fa-leaf"></span>
+                                <span class="fas fas fa-medal"></span>
                             </div>
-                            <input type="text" class="form-control" name="codTipo" value="<?php echo $row['codTipo']; ?>" readonly>
+                            <input type="text" class="form-control" name="codEspecialidad" value="<?php echo $row['codEspecialidad']; ?>" readonly>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-append input-group-text">
-                                <span class="fas fas fa-leaf"></span>
+                                <span class="fas fas fa-medal"></span>
                             </div>
                             <input type="text" class="form-control" name="descripcion" value="<?php echo $row['descripcion']; ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2">
-                            <a href="tipoPlatos" class="btn btn-default">Regresar</a>
+                            <a href="especialidades" class="btn btn-default">Regresar</a>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>

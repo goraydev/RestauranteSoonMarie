@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-warning elevation-4">
     <!-- Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="index.php" class="brand-link">
         <img src="vistas/img/plantilla/tenedor.svg" alt="tipificación unasam" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">SOON MARIE</span>
     </a>
