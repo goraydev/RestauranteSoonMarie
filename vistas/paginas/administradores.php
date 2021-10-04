@@ -43,6 +43,8 @@ $resultado = $mysqli->query($sql);
                                         <th>DNI</th>
                                         <th>Empleado</th>
                                         <th>usuario</th>
+                                        <th>Telefono</th>
+                                        <th>Dirección</th>
                                         <th>Categoria</th>
                                         <th>estado</th>
                                         <th>accion</th>
@@ -55,9 +57,14 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['DNI'] ?></td>
                                             <td><?php echo $row['Empleado'] ?></td>
                                             <td><?php echo $row['usuario'] ?></td>
+                                            <td><?php echo $row['numTelefono'] ?></td>
+                                            <td><?php echo $row['direccion'] ?></td>
                                             <td><?php echo $row['categoria'] ?></td>
                                             <td><button class='btn btn-success btn-sm'>Activo</button></td>
-                                            <td><button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarAdmin.php?DNI=<?php echo $row['DNI']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button></td>
+                                            <td>
+                                                <button class='btn btn-primary btn-sm'><a href="modificarAdmin.php?DNI=<?php echo $row['DNI']; ?>"><i class="far fa-edit text-white"></i></a></button>
+                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarAdmin.php?DNI=<?php echo $row['DNI']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
+                                            </td>
 
                                         </tr>
                                     <?php

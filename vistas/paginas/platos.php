@@ -55,7 +55,11 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['precio'] ?></td>
                                             <td><?php echo $row['especialidad'] ?></td>
                                             <td><?php echo $row['tipo'] ?></td>
-                                            <td><button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarAdmin.php?DNI=<?php echo $row['codPlato']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button></td>
+
+                                            <td>
+                                                <button class='btn btn-primary btn-sm'><a href="modificarPlatos.php?codPlatos=<?php echo $row['codPlato']; ?>"><i class="far fa-edit text-white"></i></a></button>
+                                                <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarPlatos.php?codPlatos=<?php echo $row['codPlato']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
+                                            </td>
 
                                         </tr>
                                     <?php
@@ -73,6 +77,34 @@ $resultado = $mysqli->query($sql);
     <!-- /.content -->
 </div>
 
+<!-- Para la ventan modal de eliminar a las categorias -->
+<div class="modal fade" tabindex="-1" id="confirm-delete" aria-labelledby="myModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <form action="eliminarPlatos.php" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminación de Registros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar el registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('shown.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+    });
+</script>
+
 
 <!-- Para la venta modal de crear un nuevo plato -->
 <div class="modal fade" id="crearPlato" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -83,6 +115,7 @@ $resultado = $mysqli->query($sql);
                     <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo plato</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
                     <!-- Input plato -->
                     <div class="input-group mb-3">
