@@ -83,7 +83,7 @@ $rutaBackend = ControladorRuta::ctrRutaBackend();
 
     <!-- DataTables -->
     <script src="vistas/js/plugins/dataTables.responsive.min.js"></script>
-    <script src="vistas/js/plugins/responsive.bootstrap.min.js"></script> 
+    <script src="vistas/js/plugins/responsive.bootstrap.min.js"></script>
     <script src="vistas/js/plugins/datatables.js"></script>
     <script src="vistas/js/plugins/datatables.min.js"></script>
 

@@ -17,13 +17,18 @@ class ControladorAdministradores
                 $valor =  $_POST["ingresoUsuario"];
                 $respuesta = ModeloAdministradores::mdlMostrarAdministradores($tabla, $item, $valor);
                 if ($respuesta["usuario"] == $_POST["ingresoUsuario"] && $respuesta["password"] == $encriptarPassword) {
-                    $_SESSION["validarSesionBackend"] = "ok";
-                    $_SESSION["idBackend"] = $respuesta["idCuenta"];
-                    echo '<script>
+                    /* Si el usuario esta activado podrá ingresar */
+                    if ($respuesta["estado"] == 1) {
+                        $_SESSION["validarSesionBackend"] = "ok";
+                        $_SESSION["idBackend"] = $respuesta["idCuenta"];
+                        echo '<script>
 
 					 	window.location = "' . $_SERVER["REQUEST_URI"] . '";
 
 				  		</script>';
+                    } else {
+                        echo "<div class='alert alert-danger mt-3 small'>Usuario desactivado</div>";
+                    }
                 } else {
                     echo "<div class='alert alert-danger mt-3 small'>Usuario o contraseña incorrecto</div>";
                 }
@@ -42,6 +47,18 @@ class ControladorAdministradores
         }
         $tabla = "v_empleados";
         $respuesta = ModeloAdministradores::mdlMostrarTabla($mysqli, $tabla);
+
+        return $respuesta;
+    }
+    /* Para mostrar los datos del que ingreso al sistema */
+    static public function ctrMostrarIngreso($usuario,$valor)
+    {
+        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+        if ($mysqli->connect_error) {
+            die('Error en la conexión' . $mysqli->connect_error);
+        }
+        $tabla = "cuentas";
+        $respuesta = ModeloAdministradores::mdlMostrarIngreso($mysqli, $tabla,$usuario,$valor);
 
         return $respuesta;
     }

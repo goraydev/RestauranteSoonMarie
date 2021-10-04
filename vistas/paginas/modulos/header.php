@@ -5,7 +5,9 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li>
-            <a href="" class="nav-link">Hola gerente</a>
+            <a class="nav-link">Hola <?php if (isset($_SESSION["idBackend"])) {
+                                            $admin = ControladorAdministradores::ctrMostrarIngreso("usuario", $_SESSION["idBackend"]);
+                                        } ?></a>
         </li>
     </ul>
 

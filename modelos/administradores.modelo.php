@@ -44,6 +44,22 @@ class ModeloAdministradores
             echo "ERROR, NO S EPUDO MOSTRar la tabla";
         }
     }
+
+    static public function mdlMostrarIngreso($mysqli, $tabla, $usuario, $valor)
+    {
+        $sql = "SELECT $usuario FROM $tabla WHERE idCuenta = '$valor'";
+
+        $respuesta = $mysqli->query($sql);
+        if ($respuesta) {
+            while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
+                echo $row['usuario'];
+            }
+        } else {
+            echo "ERROR, NO S EPUDO MOSTRar la tabla";
+        }
+    }
+
+
     static public function mdlMostrarOpciones($mysqli, $tabla)
     {
         $sql = "SELECT * FROM $tabla";
