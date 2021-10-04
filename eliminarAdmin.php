@@ -24,27 +24,30 @@ $resultado = $mysqli->query($sql);
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="row">
-                <div class="row" style="text-align: center;">
-                    <?php
-                    if ($resultado) { ?>
-                        <h3>Registro eliminado</h3>
-                    <?php
-                    } else { ?>
-                        <h3>No se pudo eliminar</h3>
-                    <?php
-                    }
-                    ?>
-                    <a href="administradores" class="btn btn-primary">Regresar</a>
-
-
+    <div class="container" style="display: flex; flex-direction: column;align-items: center;">
+        <div class=" row">
+            <h3>Eliminar registro</h3>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="vistas/img/plantilla/cooking.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <?php
+                if ($resultado) { ?>
+                    <h3>Registro eliminado</h3>
+                <?php
+                } else { ?>
+                    <h3>No se pudo eliminar</h3>
+                <?php
+                }
+                ?>
+                <div class="form-group">
+                    <div class="col-sm-offset-2">
+                        <a href="administradores" class="btn btn-primary">Regresar</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

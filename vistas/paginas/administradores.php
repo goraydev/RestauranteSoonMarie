@@ -60,7 +60,13 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['numTelefono'] ?></td>
                                             <td><?php echo $row['direccion'] ?></td>
                                             <td><?php echo $row['categoria'] ?></td>
-                                            <td><button class='btn btn-success btn-sm'>Activo</button></td>
+                                            <td><?php if ($row["estado"] == 1) {
+                                                    echo "<button class='btn btn-success btn-sm'>" . "Activado" . "</button>";
+                                                } else {
+                                                    echo "<button class='btn btn-dark btn-sm'>" . "Desactivado" . "</button>";
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
                                                 <button class='btn btn-primary btn-sm'><a href="modificarAdmin.php?DNI=<?php echo $row['DNI']; ?>"><i class="far fa-edit text-white"></i></a></button>
                                                 <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarAdmin.php?DNI=<?php echo $row['DNI']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>

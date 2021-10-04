@@ -109,8 +109,37 @@ $respuesta = $mysqli->query($sql5);
                     </div>
                     <div class="col-md-4">
                         <label for="nuevoPassword" class="form-label">Contraseña</label>
-                        <input type="text" class="form-control" id="nuevoPassword" name="nuevoPassword" placeholder="Crear nueva contraseña">
+                        <input type="password" class="form-control" id="nuevoPassword" name="nuevoPassword" placeholder="Crear nueva contraseña">
                     </div>
+                    <!-- Para activar como administrador -->
+                    <?php if (($row3["estado"] == 1) && $row2["DNI"] == '75182627') : ?>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="<?php echo $row3["estado"]  ?>" id="invalidCheck" checked disabled>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Activar como administrador
+                                </label>
+                            </div>
+                        </div>
+                    <?php elseif (($row3["estado"] == 1)) : ?>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="estadoDesactivado" value="0" id="activado">
+                                <label class="form-check-label" for="invalidCheck">
+                                    Desactivar como administrador
+                                </label>
+                            </div>
+                        </div>
+                    <?php else : ?>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="estadoDesactivado" value="1" id="desactivado">
+                                <label class="form-check-label" for="invalidCheck">
+                                    Activar como administrador
+                                </label>
+                            </div>
+                        </div>
+                    <?php endif ?>
                     <div class="form-group">
                         <div class="col-sm-offset-2">
                             <a href="administradores" class="btn btn-default">Regresar</a>

@@ -8,11 +8,15 @@ class ControladorAdministradores
         if (isset($_POST["ingresoUsuario"])) {
             /* Para aceptar caracteres de tipo letra y número y no recibir inyecciones sql */
             if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingresoUsuario"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingresoPassword"])) {
+
+                /* Para encriptar el password */
+                $encriptarPassword = crypt($_POST["ingresoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
                 $tabla = "cuentas";
                 $item = "usuario";
                 $valor =  $_POST["ingresoUsuario"];
                 $respuesta = ModeloAdministradores::mdlMostrarAdministradores($tabla, $item, $valor);
-                if ($respuesta["usuario"] == $_POST["ingresoUsuario"] && $respuesta["password"] == $_POST["ingresoPassword"]) {
+                if ($respuesta["usuario"] == $_POST["ingresoUsuario"] && $respuesta["password"] == $encriptarPassword) {
                     $_SESSION["validarSesionBackend"] = "ok";
                     $_SESSION["idBackend"] = $respuesta["idCuenta"];
                     echo '<script>
@@ -47,10 +51,13 @@ class ControladorAdministradores
     {
         if (isset($_POST["registroDNI"])) {
             if (preg_match('/^[0-9]+$/', $_POST["registroDNI"]) && preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/', $_POST["registroNombre"])) {
+
                 $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
                 if ($mysqli->connect_error) {
                     die('Error en la conexión' . $mysqli->connect_error);
                 }
+                /* Encriptamos el password creado */
+                $encriptarPassword = crypt($_POST['registroPassword'], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
                 $dni = $_POST['registroDNI'];
                 $nombre = $_POST['registroNombre'];
@@ -58,8 +65,9 @@ class ControladorAdministradores
                 $apellMat = $_POST['registroApellidoMat'];
                 $numTelefono  = $_POST['registroNumTelefono'];
                 $direccion = $_POST['registroDireccion'];
-                $password = $_POST['registroPassword'];
+                $password = $encriptarPassword;
                 $categoria = $_POST['registroCategoria'];
+
 
                 echo $dni;
 
