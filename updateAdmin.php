@@ -6,10 +6,20 @@ $modificarCategoria = $_POST['modificarCategoria'];
 $nuevoPassword = $_POST["nuevoPassword"];
 $fk_persona = $_POST["fk_persona"];
 $fk_cuenta = $_POST["fk_cuenta"];
-$estadoDesactivado = isset($_POST["estadoDesactivado"]);
+
+
+if (isset($_POST["estadoDesactivado"])) {
+    $estadoDesactivado = $_POST["estadoDesactivado"];
+    if ($estadoDesactivado == '1') {
+        $sql3 = "UPDATE cuentas SET estado=$estadoDesactivado WHERE idCuenta = '$fk_cuenta'";
+        $resultado3 = $mysqli->query($sql3);
+    } else {
+        $sql3 = "UPDATE cuentas SET estado=$estadoDesactivado WHERE idCuenta = '$fk_cuenta'";
+        $resultado3 = $mysqli->query($sql3);
+    }
+}
 
 /* Validamos la creación de una nueva contraseña */
-
 if ($nuevoPassword  == "") {
 } else {
     $encriptarNuevoPassword = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
@@ -17,21 +27,11 @@ if ($nuevoPassword  == "") {
     $sql2 = "UPDATE cuentas SET fk_codCategoria = '$modificarCategoria',password='$nuevoPassword' WHERE idCuenta = '$fk_cuenta'";
     $resultado2 = $mysqli->query($sql2);
 }
+
 $sql = "UPDATE personas SET numTelefono = '$numTelefono' WHERE idPerson = '$fk_persona'";
 $resultado = $mysqli->query($sql);
 $sql2 = "UPDATE cuentas SET fk_codCategoria = '$modificarCategoria' WHERE idCuenta = '$fk_cuenta'";
 $resultado2 = $mysqli->query($sql2);
-
-
-if ($estadoDesactivado == '1') {
-    $sql3 = "UPDATE cuentas SET estado='$estadoDesactivado' WHERE idCuenta = '$fk_cuenta'";
-    $resultado3 = $mysqli->query($sql3);
-} else {
-    $sql3 = "UPDATE cuentas SET estado='$estadoDesactivado' WHERE idCuenta = '$fk_cuenta'";
-    $resultado3 = $mysqli->query($sql3);
-}
-
-
 
 ?>
 
