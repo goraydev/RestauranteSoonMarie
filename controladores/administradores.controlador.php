@@ -16,11 +16,13 @@ class ControladorAdministradores
                 $item = "usuario";
                 $valor =  $_POST["ingresoUsuario"];
                 $respuesta = ModeloAdministradores::mdlMostrarAdministradores($tabla, $item, $valor);
+
                 if ($respuesta["usuario"] == $_POST["ingresoUsuario"] && $respuesta["password"] == $encriptarPassword) {
                     /* Si el usuario esta activado podrá ingresar */
                     if ($respuesta["estado"] == 1) {
                         $_SESSION["validarSesionBackend"] = "ok";
                         $_SESSION["idBackend"] = $respuesta["idCuenta"];
+
                         echo '<script>
 
 					 	window.location = "' . $_SERVER["REQUEST_URI"] . '";
@@ -51,17 +53,31 @@ class ControladorAdministradores
         return $respuesta;
     }
     /* Para mostrar los datos del que ingreso al sistema */
-    static public function ctrMostrarIngreso($usuario,$valor)
+    static public function ctrMostrarIngreso($usuario, $valor)
     {
         $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
         if ($mysqli->connect_error) {
             die('Error en la conexión' . $mysqli->connect_error);
         }
         $tabla = "cuentas";
-        $respuesta = ModeloAdministradores::mdlMostrarIngreso($mysqli, $tabla,$usuario,$valor);
+        $respuesta = ModeloAdministradores::mdlMostrarIngreso($mysqli, $tabla, $usuario, $valor);
 
         return $respuesta;
     }
+
+    /* Para mostrar el DNI del que ingreso al sistema */
+    static public function ctrMostrarDNIIngreso($usuario, $valor)
+    {
+        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
+        if ($mysqli->connect_error) {
+            die('Error en la conexión' . $mysqli->connect_error);
+        }
+        $tabla = "cuentas";
+        $respuesta = ModeloAdministradores::mdlMostrarDNIEmpleado($mysqli, $tabla, $usuario, $valor);
+
+        return $respuesta;
+    }
+
 
     /* Para registrar a los administradores */
     public function ctrRegistroAdministrador()

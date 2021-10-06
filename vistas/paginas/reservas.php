@@ -2,6 +2,7 @@
 require "conexion.php";
 $sql = "SELECT * FROM v_reservas";
 $resultado = $mysqli->query($sql);
+
 ?>
 
 <div class="content-wrapper" style="min-height: 1761.5px;">
@@ -30,7 +31,7 @@ $resultado = $mysqli->query($sql);
                     <!-- Default box -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearCategoria">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#crearReserva">
                                 Realizar nueva reserva
                             </button>
                         </div>
@@ -89,4 +90,121 @@ $resultado = $mysqli->query($sql);
         </div>
     </section>
     <!-- /.content -->
+</div>
+
+
+
+<!-- Para crear una nueva reserva -->
+<div class="modal fade" id="crearReserva" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="POST" autocomplete="off">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Seleccion del empleado -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span>Empleado:</span>
+                        </div>
+                        <select name="registroUser" id="" class="form-control" required>
+                            <option value="" disabled selected>¿Quién eres?</option>
+                            <?php
+                            $mostrarTurnos = new ControladorReservas();
+                            $mostrarTurnos->ctrMostrarEmpleados();
+                            ?>
+                        </select>
+                    </div>
+                    <hr>
+                    <h5 style="text-align: center;">Registrar datos del cliente</h5>
+                    <br>
+                    <!-- Input nombre -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroNombre" placeholder="Ingresa el nombre" required>
+                    </div>
+                    <!-- Input apellido paterno -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroApellidoPat" placeholder="Ingresa el apellido paterno" required>
+                    </div>
+
+                    <!-- Input apellido materno -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroApellidoMat" placeholder="Ingresa el apellido materno" required>
+                    </div>
+
+                    <!-- Input telefono -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-mobile-alt"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
+                    </div>
+
+                    <!-- Input direccion -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-map-marked-alt"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroDireccion" placeholder="Ingresa direccion" required>
+                    </div>
+                    <!-- Input número de comensales -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user-friends"></span>
+                        </div>
+                        <input type="number" min="1" class="form-control" name="registroNumeroComensales" placeholder="Ingresa número de comensales" required>
+                    </div>
+
+                    <!-- Seleccion del turno -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-clock"></span>
+                        </div>
+                        <select name="registroTurno" id="" class="form-control" required>
+                            <option value="" disabled selected>Seleccione un turno disponible</option>
+                            <?php
+                            $mostrarTurnos = new ControladorReservas();
+                            $mostrarTurnos->ctrMostrarTurnos();
+                            ?>
+                        </select>
+                    </div>
+
+                    <!-- Seleccion del plato -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-utensils"></span>
+                        </div>
+                        <select name="registroPlato" id="" class="form-control" required>
+                            <option value="" disabled selected>Seleccion de plato</option>
+                            <?php
+                            $mostrarPlatos = new ControladorReservas();
+                            $mostrarPlatos->ctrMostrarPlatos();
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <!-- Para el registro de reserva -->
+                <?php
+                $registroReserva = new ControladorReservas();
+                $registroReserva->ctrRegistroReserva();
+                ?>
+
+                <div class=" modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

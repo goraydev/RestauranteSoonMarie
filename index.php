@@ -12,5 +12,7 @@ require_once "controladores/especialidades.controlador.php";
 require_once "modelos/especialidades.modelo.php";
 require_once "controladores/platos.controlador.php";
 require_once "modelos/platos.modelo.php";
+require_once "controladores/reservas.controlador.php";
+require_once "modelos/reservas.modelo.php";
 $plantilla = new ControladorPlantilla();
 $plantilla->ctrPlantilla();
