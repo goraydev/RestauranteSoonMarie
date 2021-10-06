@@ -78,7 +78,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="detallereservas" class="nav-link">
-                        <i class="nav-icon fas fa-eye"></i>
+                        <i class="nav-icon fas fa-clipboard-check"></i>
                         <p>
                             Detalle de las reservas
                         </p>

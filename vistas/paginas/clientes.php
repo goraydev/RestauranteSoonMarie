@@ -1,3 +1,9 @@
+<?php
+require "conexion.php";
+$sql = "SELECT * FROM v_clientes";
+$resultado = $mysqli->query($sql);
+
+?>
 <div class="content-wrapper" style="min-height: 1761.5px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,25 +30,39 @@
                     <!-- Default box -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Title</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+                            <h3 class="card-title">Clientes que realizaron su reserva</h3>
                         </div>
                         <div class="card-body">
-                            Start creating your amazing application!
+                            <table class="table table-bordered table-striped dt-responsive tablaCategorias" width="100%">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Código de cliente</th>
+                                        <th>Cliente</th>
+                                        <th>Teléfono</th>
+                                        <th>Dirección</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="myTable">
+                                    <?php
+                                    while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['codCliente'] ?></td>
+                                            <td><?php echo $row['Cliente'] ?></td>
+                                            <td><?php echo $row['numTelefono'] ?></td>
+                                            <td><?php echo $row['direccion'] ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+
+                            </table>
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            Footer
-                        </div>
-                        <!-- /.card-footer-->
                     </div>
                     <!-- /.card -->
                 </div>
