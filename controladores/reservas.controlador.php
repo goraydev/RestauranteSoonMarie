@@ -16,7 +16,8 @@ class ControladorReservas
                 $direccion = $_POST['registroDireccion'];
 
                 /* Para pasar el DNI DEL empleado que ingreso al sistema */
-                $registroUsuario = $_POST['registroUser'];
+                $registroUsuario = $_POST['registroEmpleado'];
+                var_dump($registroUsuario);
 
                 $numComensales = $_POST['registroNumeroComensales'];
                 $registroTurno = $_POST['registroTurno'];

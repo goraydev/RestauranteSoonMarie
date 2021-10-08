@@ -65,13 +65,10 @@ class ModeloAdministradores
     {
         $sql = "SELECT $usuario FROM $tabla WHERE idCuenta = '$valor'";
         $respuesta = $mysqli->query($sql);
-        $nomUsuario = '';
         if ($respuesta) {
             while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
-                /* echo $row['usuario']; */
-                $nomUsuario = $row['usuario'];
+                echo $row['usuario'];
             }
-            echo $nomUsuario;
         } else {
             echo "ERROR, NO S EPUDO MOSTRar la tabla";
         }

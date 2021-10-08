@@ -105,17 +105,28 @@ $resultado = $mysqli->query($sql);
                 </div>
                 <div class="modal-body">
                     <!-- Seleccion del empleado -->
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">
                             <span>Empleado:</span>
                         </div>
                         <select name="registroUser" id="" class="form-control" required>
                             <option value="" disabled selected>¿Quién eres?</option>
-                            <?php
-                            $mostrarTurnos = new ControladorReservas();
-                            $mostrarTurnos->ctrMostrarEmpleados();
-                            ?>
-                        </select>
+                            //<?php
+                                //$mostrarTurnos = new ControladorReservas();
+                                //$mostrarTurnos->ctrMostrarEmpleados();
+                                //
+                                ?>
+                        </select> -->
+                    <!-- </div> -->
+                    <!-- Input nombre -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                        <input type="text" class="form-control" name="registroEmpleado" placeholder="Ingresa el nombre" value="<?php if (isset($_SESSION["idBackend"])) {
+                                                                                                                                    $admin = ControladorAdministradores::ctrMostrarIngreso("usuario", $_SESSION["idBackend"]);
+                                                                                                                                    
+                                                                                                                                } ?>">
                     </div>
                     <hr>
                     <h5 style="text-align: center;">Registrar datos del cliente</h5>

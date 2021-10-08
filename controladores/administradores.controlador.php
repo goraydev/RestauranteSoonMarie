@@ -22,6 +22,7 @@ class ControladorAdministradores
                     if ($respuesta["estado"] == 1) {
                         $_SESSION["validarSesionBackend"] = "ok";
                         $_SESSION["idBackend"] = $respuesta["idCuenta"];
+                        
 
                         echo '<script>
 

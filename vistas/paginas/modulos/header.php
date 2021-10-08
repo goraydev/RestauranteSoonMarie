@@ -7,6 +7,7 @@
         <li>
             <a class="nav-link">Hola <?php if (isset($_SESSION["idBackend"])) {
                                             $admin = ControladorAdministradores::ctrMostrarIngreso("usuario", $_SESSION["idBackend"]);
+                                            
                                         } ?></a>
         </li>
     </ul>
