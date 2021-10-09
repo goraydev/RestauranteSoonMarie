@@ -12,7 +12,7 @@ class ControladorAdministradores
                 /* Para encriptar el password */
                 $encriptarPassword = crypt($_POST["ingresoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
-                $tabla = "cuentas";
+                $tabla = "v_empusers";
                 $item = "usuario";
                 $valor =  $_POST["ingresoUsuario"];
                 $respuesta = ModeloAdministradores::mdlMostrarAdministradores($tabla, $item, $valor);
@@ -22,7 +22,7 @@ class ControladorAdministradores
                     if ($respuesta["estado"] == 1) {
                         $_SESSION["validarSesionBackend"] = "ok";
                         $_SESSION["idBackend"] = $respuesta["idCuenta"];
-                        
+
 
                         echo '<script>
 
@@ -54,27 +54,11 @@ class ControladorAdministradores
         return $respuesta;
     }
     /* Para mostrar los datos del que ingreso al sistema */
-    static public function ctrMostrarIngreso($usuario, $valor)
+    static public function ctrMostrarIngreso($item, $valor)
     {
-        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-        if ($mysqli->connect_error) {
-            die('Error en la conexión' . $mysqli->connect_error);
-        }
-        $tabla = "cuentas";
-        $respuesta = ModeloAdministradores::mdlMostrarIngreso($mysqli, $tabla, $usuario, $valor);
+        $tabla = "v_empusers";
 
-        return $respuesta;
-    }
-
-    /* Para mostrar el DNI del que ingreso al sistema */
-    static public function ctrMostrarDNIIngreso($usuario, $valor)
-    {
-        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-        if ($mysqli->connect_error) {
-            die('Error en la conexión' . $mysqli->connect_error);
-        }
-        $tabla = "cuentas";
-        $respuesta = ModeloAdministradores::mdlMostrarDNIEmpleado($mysqli, $tabla, $usuario, $valor);
+        $respuesta = ModeloAdministradores::mdlMostrarAdministradores($tabla, $item, $valor);
 
         return $respuesta;
     }

@@ -79,10 +79,6 @@ $resultado = $mysqli->query($sql);
                             </table>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer">
-                            Footer
-                        </div>
-                        <!-- /.card-footer-->
                     </div>
                     <!-- /.card -->
                 </div>
@@ -104,33 +100,13 @@ $resultado = $mysqli->query($sql);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Seleccion del empleado -->
-                    <!-- <div class="input-group mb-3">
-                        <div class="input-group-append input-group-text">
-                            <span>Empleado:</span>
-                        </div>
-                        <select name="registroUser" id="" class="form-control" required>
-                            <option value="" disabled selected>¿Quién eres?</option>
-                            //<?php
-                                //$mostrarTurnos = new ControladorReservas();
-                                //$mostrarTurnos->ctrMostrarEmpleados();
-                                //
-                                ?>
-                        </select> -->
-                    <!-- </div> -->
                     <!-- Input nombre -->
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroEmpleado" placeholder="Ingresa el nombre" value="<?php if (isset($_SESSION["idBackend"])) {
-                                                                                                                                    $admin = ControladorAdministradores::ctrMostrarIngreso("usuario", $_SESSION["idBackend"]);
-                                                                                                                                    
-                                                                                                                                } ?>">
+                        <input type="text" class="form-control" name="registroEmpleado" placeholder="Ingresa el nombre" value="<?php echo $admin["DNI"] ?>">
                     </div>
-                    <hr>
-                    <h5 style="text-align: center;">Registrar datos del cliente</h5>
-                    <br>
                     <!-- Input nombre -->
                     <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">

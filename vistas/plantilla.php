@@ -1,6 +1,10 @@
 <?php
 session_start();
 $rutaBackend = ControladorRuta::ctrRutaBackend();
+
+if (isset($_SESSION["idBackend"])) {
+    $admin = ControladorAdministradores::ctrMostrarIngreso("idCuenta", $_SESSION["idBackend"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
