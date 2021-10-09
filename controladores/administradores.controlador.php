@@ -7,7 +7,7 @@ class ControladorAdministradores
     {
         if (isset($_POST["ingresoUsuario"])) {
             /* Para aceptar caracteres de tipo letra y número y no recibir inyecciones sql */
-            if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingresoUsuario"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingresoPassword"])) {
+            if (preg_match('/^[a-zA-Z0-9-áéíóúÁÉÍÓÚñÑ]+$/', $_POST["ingresoUsuario"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingresoPassword"])) {
 
                 /* Para encriptar el password */
                 $encriptarPassword = crypt($_POST["ingresoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');

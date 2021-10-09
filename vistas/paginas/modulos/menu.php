@@ -11,30 +11,33 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item">
-                    <a href="inicio" class="nav-link active">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Inicio
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="administradores" class="nav-link">
-                        <i class="nav-icon fas fa-id-card"></i>
-                        <p>
-                            Empleados
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categorias" class="nav-link">
-                        <i class="nav-icon fas fas fa-users-cog"></i>
-                        <p>
-                            Categorias
-                        </p>
-                    </a>
-                </li>
+                <?php if ($admin["fk_codCategoria"] == "CEM-GER") : ?>
+                    <li class="nav-item">
+                        <a href="inicio" class="nav-link active">
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>
+                                Inicio
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="administradores" class="nav-link">
+                            <i class="nav-icon fas fa-id-card"></i>
+                            <p>
+                                Empleados
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="categorias" class="nav-link">
+                            <i class="nav-icon fas fas fa-users-cog"></i>
+                            <p>
+                                Categorias
+                            </p>
+                        </a>
+                    </li>
+                <?php endif ?>
+
                 <li class="nav-item">
                     <a href="tipoPlatos" class="nav-link">
                         <i class="nav-icon fas fa-leaf"></i>
@@ -64,34 +67,36 @@
                     <a href="turno" class="nav-link">
                         <i class="nav-icon fas fa-clock"></i>
                         <p>
-                            Turno
+                            Turnos
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="reservas" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                        <p>
-                            Reservas
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="detallereservas" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-check"></i>
-                        <p>
-                            Detalle de las reservas
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="clientes" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Clientes
-                        </p>
-                    </a>
-                </li>
+                <?php if (($admin["fk_codCategoria"] == "CEM-EMP") || ($admin["fk_codCategoria"] == "CEM-GER")) : ?>
+                    <li class="nav-item">
+                        <a href="reservas" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-alt"></i>
+                            <p>
+                                Reservas
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="detallereservas" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard-check"></i>
+                            <p>
+                                Detalle de las reservas
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clientes" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Clientes
+                            </p>
+                        </a>
+                    </li>
+                <?php endif ?>
 
             </ul>
         </nav>
