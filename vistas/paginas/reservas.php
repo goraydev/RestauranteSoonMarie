@@ -66,7 +66,7 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['descripcion'] ?></td>
                                             <td><?php echo $row['Horario'] ?></td>
                                             <td>
-                                                <button class='btn btn-primary btn-sm'><a href="modificarCat.php?codCat=<?php echo $row['codReserva']; ?>"><i class="far fa-edit text-white"></i></a></button>
+                                                <button class='btn btn-primary btn-sm'><a href="modificarReserva.php?codReserva=<?php echo $row['codReserva']; ?>"><i class="far fa-edit text-white"></i></a></button>
                                                 <button class='btn btn-danger btn-sm'><a href="#" data-href="eliminarCat.php?codCat=<?php echo $row['codReserva']; ?>" data-bs-toggle="modal" data-bs-target="#confirm-delete"><i class="fas fa-trash-alt text-white"></i></a></button>
                                             </td>
 

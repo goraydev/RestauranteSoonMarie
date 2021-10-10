@@ -40,13 +40,10 @@ $resultado = $mysqli->query($sql);
                                     <tr>
                                         <th>Id</th>
                                         <th>Código de reserva</th>
-                                        <th>Cantidad de comensales</th>
-                                        <th>Pago</th>
                                         <th>Cliente</th>
-                                        <th>Dirección</th>
-                                        <th>Turno</th>
-                                        <th>Horario</th>
+                                        <th>Cantidad de comensales</th>
                                         <th>Plato</th>
+                                        <th>Pago</th>
                                     </tr>
 
                                 </thead>
@@ -57,14 +54,10 @@ $resultado = $mysqli->query($sql);
                                         <tr>
                                             <td><?php echo $row['idDetalles'] ?></td>
                                             <td><?php echo $row['codReserva'] ?></td>
-                                            <td><?php echo $row['numComensales'] ?></td>
-                                            <td><?php echo $row['precioPagar'] ?></td>
                                             <td><?php echo $row['Cliente'] ?></td>
-                                            <td><?php echo $row['direccion'] ?></td>
-                                            <td><?php echo $row['Turno'] ?></td>
-                                            <td><?php echo $row['Horario'] ?></td>
+                                            <td><?php echo $row['numComensales'] ?></td>
                                             <td><?php echo $row['nombrePlato'] ?></td>
-
+                                            <td><?php echo $row['precioPagar'] ?></td>
                                         </tr>
                                     <?php
                                     }

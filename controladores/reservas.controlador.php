@@ -76,18 +76,4 @@ class ControladorReservas
 
         return $respuesta;
     }
-
-    /* Para que se muestren los empleados disponibles */
-    public function ctrMostrarEmpleados()
-    {
-
-        $mysqli = new mysqli('localhost:3307', 'root', '', 'restaurantesoonmarie');
-        if ($mysqli->connect_error) {
-            die('Error en la conexión' . $mysqli->connect_error);
-        }
-        $tabla = "v_empleados";
-        $respuesta = ModeloReservas::mdlMostrarEmpleados($mysqli, $tabla);
-
-        return $respuesta;
-    }
 }
