@@ -59,6 +59,17 @@ $row = $resultado->fetch_array(MYSQLI_ASSOC);
                             </div>
                             <input type="time" class="form-control" name="finTurno" value="<?php echo $row['fin']; ?>">
                         </div>
+                        <!-- Para recargar la capacidad -->
+                        <?php if (($row["capacidad"] == 0)) : ?>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="recargarCapacidad" value="1" id="recargar">
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Recargar capacidad
+                                    </label>
+                                </div>
+                            </div>
+                        <?php endif ?>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2">

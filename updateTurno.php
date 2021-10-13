@@ -6,6 +6,19 @@ $inicioTurno = $_POST['inicioTurno'];
 $finTurno = $_POST['finTurno'];
 $sql = "UPDATE turnos SET inicio = '$inicioTurno',fin='$finTurno' WHERE idTurnos = '$codTurno'";
 $resultado = $mysqli->query($sql);
+
+/* Si recarga la capacidad */
+if (isset($_POST["recargarCapacidad"])) {
+    $recargarCapacidad = $_POST['recargarCapacidad'];
+    if ($recargarCapacidad == '1') {
+        $sql3 = "UPDATE turnos SET capacidad=30 WHERE idTurnos = '$codTurno'";
+        $resultado3 = $mysqli->query($sql3);
+    } else {
+        $sql3 = "UPDATE turnos SET capacidad=0 WHERE idTurnos = '$codTurno'";
+        $resultado3 = $mysqli->query($sql3);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
