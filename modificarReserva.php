@@ -35,6 +35,7 @@ $sql5 = "SELECT * FROM detallereservas WHERE fk_reserva ='$fkReserva'";
 $resultado5 = $mysqli->query($sql5);
 $row5 = $resultado5->fetch_array(MYSQLI_ASSOC);
 
+
 /* Variable que contiene el codigo del plato reservado */
 $fkPlato = $row5["fk_platos"];
 
@@ -60,6 +61,7 @@ $fkPersona = $row8["fk_idPerson"];
 $sql9 = "SELECT * FROM personas WHERE idPerson = '$fkPersona'";
 $resultado9 = $mysqli->query($sql9);
 $row9 = $resultado9->fetch_array(MYSQLI_ASSOC);
+
 
 ?>
 
@@ -126,6 +128,9 @@ $row9 = $resultado9->fetch_array(MYSQLI_ASSOC);
                     <input type="text" style="display: none;" name="idPersona" value="<?php echo $row9["idPerson"]; ?>">
                     <input type="text" style="display: none;" name="numActualComensales" value="<?php echo $row["numComensales"]; ?>">
                     <input type="text" style="display: none;" name="nomActualPlato" value="<?php echo $row6["codPlato"]; ?>">
+                    <input type="date" style="display: none;" name="actualFechaReserva" value="<?php echo $row5["fecha_reserva"]; ?>">
+
+
 
                     <div class="col-md-3">
                         <label for="numComensales" class="form-label">Número de comensales</label>
@@ -147,6 +152,10 @@ $row9 = $resultado9->fetch_array(MYSQLI_ASSOC);
                             ?>
                         </select>
                     </div>
+                    <div class="col-md-3">
+                        <label for="numComensales" class="form-label">Fecha reservada</label>
+                        <input type="date" class="form-control" id="search_date" name="nuevaFechaReserva" value="<?php echo $row5["fecha_reserva"]; ?>">
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2">
                             <a href="reservas" class="btn btn-default">Regresar</a>
@@ -158,7 +167,7 @@ $row9 = $resultado9->fetch_array(MYSQLI_ASSOC);
         </div>
     </div>
     </div>
-
+    <script src="vistas/js/reservas.js"></script>
 </body>
 
 </html>

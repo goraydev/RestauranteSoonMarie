@@ -24,23 +24,47 @@
                     <!-- Default box -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Title</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+                            <h3 class="card-title">Reportes</h3>
                         </div>
-                        <div class="card-body">
-                            Start creating your amazing application!
+                        <div class="card-body card-horizontal">
+                            <div class="container">
+                                <div class="row row-cols-6">
+                                    <div class="col">
+                                        <div class="card" style="width: 15rem;">
+                                            <img src="vistas/img/reportes/reservas.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Reporte de reservas</b></h5><br>
+                                                <p class="card-text">Descargue todas las reservas realizadas hasta hoy</p>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button class="btn btn-danger"><a href="reportes.php" class="text-light" target="_blank" rel="noopener noreferrer">PDF</a></button>
+                                                    <button class="btn btn-success"><a href="dexcel.php" class="text-light" target="_blank" rel="noopener noreferrer">XLS</a></button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card" style="width: 15rem;">
+                                            <img src="vistas/img/reportes/reservas.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>Reporte de clientes</b></h5><br>
+                                                <p class="card-text">Descargue todas los clientes que reservaron</p>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button class="btn btn-danger"><a href="reportes.php" class="text-light" target="_blank" rel="noopener noreferrer">PDF</a></button>
+                                                    <button class="btn btn-success"><a href="dexcel.php" class="text-light" target="_blank" rel="noopener noreferrer">XLS</a></button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">Column</div>
+                                    <div class="col">Column</div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            Footer
+                            Todos los reportes en un solo click
                         </div>
                         <!-- /.card-footer-->
                     </div>

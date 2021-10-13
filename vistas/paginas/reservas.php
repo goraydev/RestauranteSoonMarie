@@ -167,6 +167,14 @@ $resultado = $mysqli->query($sql);
                         </select>
                     </div>
 
+                    <!-- Seleccione el día de la reserva -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <span class="fas fa-calendar-alt"></span>
+                        </div>
+                        <input type="date" name="fechaReserva" id="search_date" min="">
+                    </div>
+
                     <!-- Seleccion del plato -->
                     <div class="input-group mb-3">
                         <div class="input-group-append input-group-text">
@@ -180,6 +188,7 @@ $resultado = $mysqli->query($sql);
                             ?>
                         </select>
                     </div>
+
                 </div>
                 <!-- Para el registro de reserva -->
                 <?php

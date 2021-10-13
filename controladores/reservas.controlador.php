@@ -20,10 +20,11 @@ class ControladorReservas
 
                 $numComensales = $_POST['registroNumeroComensales'];
                 $registroTurno = $_POST['registroTurno'];
+                $fechaReserva = $_POST['fechaReserva'];
                 $registroPlato = $_POST['registroPlato'];
 
 
-                $sql = "CALL p_nuevoRegisClie('$nombre','$apellPat','$apellMat','$numTelefono','$direccion','$registroUsuario','$numComensales','$registroTurno','$registroPlato')";
+                $sql = "CALL p_nuevoRegisClie('$nombre','$apellPat','$apellMat','$numTelefono','$direccion','$registroUsuario','$numComensales','$registroTurno','$fechaReserva','$registroPlato')";
                 $respuesta = ModeloReservas::mdlRegistroReservas($mysqli, $sql);
                 if ($respuesta == "ok") {
 

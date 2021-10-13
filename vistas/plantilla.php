@@ -140,6 +140,7 @@ if (isset($_SESSION["idBackend"])) {
         <script src="vistas/js/administradores.js"></script>
         <script src="vistas/js/categorias.js"></script>
         <script src="vistas/js/tablaTipodePlatos.js"></script>
+        <script src="vistas/js/reservas.js"></script>
     </body>
 <?php endif ?>
 
