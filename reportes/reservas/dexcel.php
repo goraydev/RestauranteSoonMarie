@@ -1,9 +1,9 @@
 <?php
 header("Content-Type: application/xls");
-header("Content-Disposition: attachment; filename=reportes.xls");
+header("Content-Disposition: attachment; filename=reservas.xls");
 ?>
 <?php
-require 'conexion.php';
+require '../../conexion.php';
 $sql = "SELECT * FROM v_reservas";
 $resultado = $mysqli->query($sql);
 
@@ -12,7 +12,7 @@ $resultado = $mysqli->query($sql);
 	<thead>
 		<tr>
 			<th>Codigo</th>
-			<th>Empleado</th>
+			<th>Cliente</th>
 			<th>Telefono</th>
 			<th>Direccion</th>
 			<th>Empleado</th>

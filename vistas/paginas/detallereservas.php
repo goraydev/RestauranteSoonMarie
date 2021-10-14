@@ -1,6 +1,6 @@
 <?php
 require "conexion.php";
-$sql = "SELECT * FROM v_detalleReservas";
+$sql = "SELECT * FROM v_reservaGeneral";
 $resultado = $mysqli->query($sql);
 
 ?>
@@ -38,14 +38,19 @@ $resultado = $mysqli->query($sql);
                                 <thead>
 
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Código de reserva</th>
+                                        <th>Código</th>
                                         <th>Cliente</th>
-                                        <th>Cantidad de comensales</th>
+                                        <th>Teléfono</th>
+                                        <th>Dirección</th>
                                         <th>Plato</th>
+                                        <th>Precio</th>
+                                        <th>Comensales</th>
                                         <th>Pago</th>
                                         <th>Fecha llamada</th>
                                         <th>Fecha reservada</th>
+                                        <th>Turno</th>
+                                        <th>Horario</th>
+                                        <th>Empleado</th>
                                     </tr>
 
                                 </thead>
@@ -54,14 +59,19 @@ $resultado = $mysqli->query($sql);
                                     <?php
                                     while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
                                         <tr>
-                                            <td><?php echo $row['idDetalles'] ?></td>
                                             <td><?php echo $row['codReserva'] ?></td>
                                             <td><?php echo $row['Cliente'] ?></td>
-                                            <td><?php echo $row['numComensales'] ?></td>
+                                            <td><?php echo $row['telCliente'] ?></td>
+                                            <td><?php echo $row['dirCliente'] ?></td>
                                             <td><?php echo $row['nombrePlato'] ?></td>
+                                            <td><?php echo $row['precioUnidad'] ?></td>
+                                            <td><?php echo $row['numComensales'] ?></td>
                                             <td><?php echo $row['precioPagar'] ?></td>
                                             <td><?php echo $row['fecha_llamada'] ?></td>
                                             <td><?php echo $row['fecha_reserva'] ?></td>
+                                            <td><?php echo $row['descripcion'] ?></td>
+                                            <td><?php echo $row['Horario'] ?></td>
+                                            <td><?php echo $row['Empleado'] ?></td>
 
                                         </tr>
                                     <?php

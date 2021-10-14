@@ -91,7 +91,7 @@ if (($modificarTurno != $actualTurno) && ($numComensales != $numActualComensales
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2">
-                        <a href="reservas" class="btn btn-primary">Regresar</a>
+                        <a href="detallereservas" class="btn btn-primary">Regresar</a>
                     </div>
                 </div>
             </div>
