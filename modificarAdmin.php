@@ -14,6 +14,8 @@ $row2 = $resultado2->fetch_array(MYSQLI_ASSOC);
 /* Variable que obtiene el fk de la cuenta del empleado */
 $fkCuenta = $row2["fk_idCuenta"];
 
+/* Variable que obtiene el fk de la persona del empleado */
+$fkPersona = $row2["fk_persona"];
 
 /* Consultamos a la tabla cuentas */
 $sql3 = "SELECT * FROM cuentas WHERE idCuenta = '$fkCuenta'";
@@ -32,6 +34,11 @@ $row4 = $resultado4->fetch_array(MYSQLI_ASSOC);
 /* Para mostrar las demás categorias, diferentes a la que tiene el empleado */
 $sql5 = "SELECT * FROM categorias WHERE codCategoria != '$fkCodCategoria'";
 $respuesta = $mysqli->query($sql5);
+
+/* Para mostrar los datos del empleado y pueda modificar */
+$sql6 = "SELECT * FROM personas WHERE idPerson = '$fkPersona'";
+$resultado6 = $mysqli->query($sql6);
+$row6 = $resultado6->fetch_array(MYSQLI_ASSOC);
 
 ?>
 
@@ -61,10 +68,6 @@ $respuesta = $mysqli->query($sql5);
         <div class="card" style="width: 50rem;">
             <div class="card-body">
                 <form class="row g-3" method="POST" action="updateAdmin.php" autocomplete="off">
-                    <div class="col-md-4">
-                        <label for="dni" class="form-label">DNI</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<?php echo $row["DNI"]; ?>" readonly>
-                    </div>
                     <!-- para enviar el fk_persona y poder modificar el número de telefono -->
                     <div class="col-md-4" style="display: none;">
                         <label for="fk_persona" class="form-label">fk_persona</label>
@@ -76,11 +79,20 @@ $respuesta = $mysqli->query($sql5);
                         <label for="fk_cuenta" class="form-label">fk_persona</label>
                         <input type="text" class="form-control" id="fk_cuenta" name="fk_cuenta" value="<?php echo $row2["fk_idCuenta"]; ?>" readonly>
                     </div>
-
+                    
                     <div class="col-md-4">
-                        <label for="nombreEmpleados" class="form-label">Empleado</label>
-                        <input type="text" class="form-control" id="nombreEmpleado" value="<?php echo $row["Empleado"]; ?>" readonly>
+                        <label for="dni" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="dni" name="nomEmpleado" value="<?php echo $row6["nombres"]; ?>">
                     </div>
+                    <div class="col-md-4">
+                        <label for="nombreEmpleados" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="apellPater" name="apellPater" value="<?php echo $row6["apellidoPat"]; ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nombreEmpleados" class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control" id="apellMater" name="apellMater" value="<?php echo $row6["apellidoMat"]; ?>">
+                    </div>
+                    
                     <div class="col-md-4">
                         <label for="username" class="form-label">Nombre de usuario</label>
                         <div class="input-group">
@@ -140,6 +152,11 @@ $respuesta = $mysqli->query($sql5);
                             </div>
                         </div>
                     <?php endif ?>
+                    <div class="col-12">
+                        <div>
+                            <small>Nota: <i>Al actualizar los datos del empleado también se cambiará automáticamente el nombre de usuario</i></small>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2">
                             <a href="administradores" class="btn btn-default">Regresar</a>

@@ -5,6 +5,10 @@ $codReserva = $_POST["codReserva"];
 
 $dirCliente = $_POST['dirCliente'];
 $modificarTurno = $_POST['modificarTurno'];
+$nombreCliente = $_POST['nombreCliente'];
+$apellPatCliente = $_POST['apellPatCliente'];
+$apellMatCliente = $_POST['apellMatCliente'];
+$telCliente = $_POST['telCliente'];
 
 /* escondidos */
 $actualTurno = $_POST['actualTurno'];
@@ -18,7 +22,7 @@ $nuevaFechaReserva = $_POST['nuevaFechaReserva'];
 $modificarPlato = $_POST['modificarPlato'];
 
 
-$sql = "UPDATE personas SET direccion = '$dirCliente' WHERE idPerson='$idPerson'";
+$sql = "UPDATE personas SET nombres = '$nombreCliente',apellidoPat = '$apellPatCliente',apellidoMat='$apellMatCliente',numtelefono = '$telCliente',direccion = '$dirCliente' WHERE idPerson='$idPerson'";
 $resultado = $mysqli->query($sql);
 
 if (($modificarTurno != $actualTurno) || ($numComensales != $numActualComensales) || ($modificarPlato != $nomActualPlato) || ($nuevaFechaReserva != $actualFechaReserva)) {

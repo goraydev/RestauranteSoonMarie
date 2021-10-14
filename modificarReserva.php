@@ -92,20 +92,37 @@ $row9 = $resultado9->fetch_array(MYSQLI_ASSOC);
         <div class="card" style="width: 50rem;">
             <div class="card-body">
                 <form class="row g-3" method="POST" action="updateReservas.php" autocomplete="off">
-                    <div class="col-md-4">
-                        <label for="codReserva" class="form-label">Código de reserva</label>
-                        <input type="text" class="form-control" id="codReserva" name="codReserva" value="<?php echo $row["codReserva"]; ?>" readonly>
+                    <h5>Datos del cliente</h5>
+                    <div class="col-md-3">
+                        <label for="nombreCliente" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" value="<?php echo $row9["nombres"]; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nombreCliente" class="form-label">Apellido Pat.</label>
+                        <input type="text" class="form-control" id="apellPatCliente" name="apellPatCliente" value="<?php echo $row9["apellidoPat"]; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nombreCliente" class="form-label">Apellido Mat.</label>
+                        <input type="text" class="form-control" id="apellMatCliente" name="apellMatCliente" value="<?php echo $row9["apellidoMat"]; ?>">
                     </div>
 
-                    <div class="col-md-4">
-                        <label for="nombreCliente" class="form-label">Cliente</label>
-                        <input type="text" class="form-control" id="nombreCliente" value="<?php echo $row2["Cliente"]; ?>" readonly>
+                    <div class="col-md-3">
+                        <label for="dirCliente" class="form-label">Teléfono</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="telCliente" name="telCliente" value="<?php echo $row9["numTelefono"]; ?>">
+                        </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="dirCliente" class="form-label">Dirección</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="dirCliente" name="dirCliente" value="<?php echo $row9["direccion"]; ?>">
                         </div>
+                    </div>
+                    <hr>
+                    <h5>Datos de la reserva</h5>
+                    <div class="col-md-3">
+                        <label for="codReserva" class="form-label">Código de reserva</label>
+                        <input type="text" class="form-control" id="codReserva" name="codReserva" value="<?php echo $row["codReserva"]; ?>" readonly>
                     </div>
                     <div class="col-md-7">
                         <label for="validationDefault04" class="form-label">Descripción y horario</label>

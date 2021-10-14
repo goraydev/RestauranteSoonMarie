@@ -6,6 +6,9 @@ $modificarCategoria = $_POST['modificarCategoria'];
 $nuevoPassword = $_POST["nuevoPassword"];
 $fk_persona = $_POST["fk_persona"];
 $fk_cuenta = $_POST["fk_cuenta"];
+$nomEmpleado = $_POST["nomEmpleado"];
+$apellPater = $_POST["apellPater"];
+$apellMater = $_POST["apellMater"];
 
 
 if (isset($_POST["estadoDesactivado"])) {
@@ -32,7 +35,8 @@ $sql = "UPDATE personas SET numTelefono = '$numTelefono' WHERE idPerson = '$fk_p
 $resultado = $mysqli->query($sql);
 $sql2 = "UPDATE cuentas SET fk_codCategoria = '$modificarCategoria' WHERE idCuenta = '$fk_cuenta'";
 $resultado2 = $mysqli->query($sql2);
-
+$sql3 = "CALL p_updateEmpleado('$nomEmpleado','$apellPater','$apellMater','$fk_persona','$fk_cuenta')";
+$resultado3 = $mysqli->query($sql3);
 ?>
 
 <!DOCTYPE html>

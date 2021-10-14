@@ -11,15 +11,16 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+
+                <li class="nav-item">
+                    <a href="inicio" class="nav-link active">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Inicio
+                        </p>
+                    </a>
+                </li>
                 <?php if ($admin["fk_codCategoria"] == "CEM-GER") : ?>
-                    <li class="nav-item">
-                        <a href="inicio" class="nav-link active">
-                            <i class="nav-icon fas fa-home"></i>
-                            <p>
-                                Inicio
-                            </p>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a href="administradores" class="nav-link">
                             <i class="nav-icon fas fa-id-card"></i>

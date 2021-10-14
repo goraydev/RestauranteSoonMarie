@@ -44,6 +44,8 @@ $resultado = $mysqli->query($sql);
                                         <th>Cantidad de comensales</th>
                                         <th>Plato</th>
                                         <th>Pago</th>
+                                        <th>Fecha llamada</th>
+                                        <th>Fecha reservada</th>
                                     </tr>
 
                                 </thead>
@@ -58,6 +60,9 @@ $resultado = $mysqli->query($sql);
                                             <td><?php echo $row['numComensales'] ?></td>
                                             <td><?php echo $row['nombrePlato'] ?></td>
                                             <td><?php echo $row['precioPagar'] ?></td>
+                                            <td><?php echo $row['fecha_llamada'] ?></td>
+                                            <td><?php echo $row['fecha_reserva'] ?></td>
+
                                         </tr>
                                     <?php
                                     }
