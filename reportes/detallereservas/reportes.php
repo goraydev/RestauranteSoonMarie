@@ -17,7 +17,7 @@ class PDF extends FPDF
         $this->Ln(20);
 
         $this->Cell(190);
-        $this->Cell(30, 15, 'Reporte de los empleados', 0, 0, 'C');
+        $this->Cell(30, 15, 'Reporte general', 0, 0, 'C');
         $this->Ln(10);
 
         $this->Cell(190);

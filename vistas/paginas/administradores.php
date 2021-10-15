@@ -2,6 +2,28 @@
 require "conexion.php";
 $sql = "SELECT * FROM v_empleados";
 $resultado = $mysqli->query($sql);
+if ($admin["fk_codCategoria"] != "CEM-GER") {
+
+    echo '<script>
+
+    Swal.fire({
+            icon:"error",
+              title: "¡Lo sentimos!",
+              text: "Usted no tiene acceso a esta sección",
+              showConfirmButton: true,
+            confirmButtonText: "Cerrar"
+          
+    }).then(function(result){
+
+            if(result.value){   
+                window.location = "inicio";
+              } 
+    });
+
+</script>';
+
+    return;
+}
 
 ?>
 <div class="content-wrapper" style="min-height: 717px;">
@@ -126,7 +148,7 @@ $resultado = $mysqli->query($sql);
 <div class="modal fade" id="crearAdministrador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="" method="POST">
+            <form action="" method="POST" autocomplete="off">
                 <div class="modal-header bg-warning">
                     <h5 class="modal-title" id="staticBackdropLabel">Crear nuevo empleado</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -137,7 +159,7 @@ $resultado = $mysqli->query($sql);
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroDNI" placeholder="Ingresa el DNI" required>
+                        <input type="text" maxlength="8" minlength="8" class="form-control" name="registroDNI" placeholder="Ingresa el DNI" required>
                     </div>
                     <!-- Input nombre -->
                     <div class="input-group mb-3">
@@ -167,7 +189,7 @@ $resultado = $mysqli->query($sql);
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-mobile-alt"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
+                        <input type="text" class="form-control" minlength="9" maxlength="9" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
                     </div>
 
                     <!-- Input direccion -->

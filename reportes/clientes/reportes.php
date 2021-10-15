@@ -17,7 +17,7 @@ class PDF extends FPDF
         $this->Ln(20);
 
         $this->Cell(80);
-        $this->Cell(30, 15, 'Reporte de los empleados', 0, 0, 'C');
+        $this->Cell(30, 15, 'Reporte de los clientes', 0, 0, 'C');
         $this->Ln(10);
 
         $this->Cell(80);
@@ -55,7 +55,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial', '', 8);
 while ($mostrar = $resultado1->fetch_array(MYSQLI_ASSOC)) {
     $pdf->Cell(20);
-    $pdf->Cell(50, 6, $mostrar['codCliente'], 1, 0, 'L', 0);
+    $pdf->Cell(50, 6, utf8_decode($mostrar['codCliente']), 1, 0, 'L', 0);
     $pdf->Cell(40, 6, utf8_decode($mostrar['Cliente']), 1, 0, 'L', 0);
     $pdf->Cell(20, 6, $mostrar['numTelefono'], 1, 0, 'L', 0);
     $pdf->Cell(40, 6, utf8_decode($mostrar['direccion']), 1, 1, 'C', 0);

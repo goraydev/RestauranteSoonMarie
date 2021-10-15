@@ -3,6 +3,28 @@ require "conexion.php";
 $sql = "SELECT * FROM v_reservas";
 $resultado = $mysqli->query($sql);
 
+if (($admin["fk_codCategoria"] == "CEM-JEF")) {
+
+    echo '<script>
+
+    Swal.fire({
+            icon:"error",
+              title: "¡Lo sentimos!",
+              text: "Usted no tiene acceso a esta sección",
+              showConfirmButton: true,
+            confirmButtonText: "Cerrar"
+          
+    }).then(function(result){
+
+            if(result.value){   
+                window.location = "inicio";
+              } 
+    });
+
+</script>';
+
+    return;
+}
 ?>
 
 <div class="content-wrapper" style="min-height: 1761.5px;">
@@ -161,7 +183,7 @@ $resultado = $mysqli->query($sql);
                         <div class="input-group-append input-group-text">
                             <span class="fas fa-mobile-alt"></span>
                         </div>
-                        <input type="text" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
+                        <input type="text" minlength="9" maxlength="9" class="form-control" name="registroNumTelefono" placeholder="Ingresa número de celular" required>
                     </div>
 
                     <!-- Input direccion -->

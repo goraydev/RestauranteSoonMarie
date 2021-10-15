@@ -42,6 +42,8 @@ if (isset($_SESSION["idBackend"])) {
     <link rel="stylesheet" href="vistas/css/plugins/responsive.bootstrap.min.css">
     <link rel="stylesheet" href="vistas/css/plugins/datatables.css">
     <link rel="stylesheet" href="vistas/css/plugins/datatables.min.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="vistas/css/plugins/morris.css">
 
 
 
@@ -90,6 +92,11 @@ if (isset($_SESSION["idBackend"])) {
     <script src="vistas/js/plugins/responsive.bootstrap.min.js"></script>
     <script src="vistas/js/plugins/datatables.js"></script>
     <script src="vistas/js/plugins/datatables.min.js"></script>
+
+    <!-- Morris.js charts -->
+    <!-- https://morrisjs.github.io/morris.js/ -->
+    <script src="vistas/js/plugins/raphael-min.js"></script>
+    <script src="vistas/js/plugins/morris.min.js"></script>
 
 </head>
 

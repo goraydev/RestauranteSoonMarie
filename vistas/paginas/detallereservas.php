@@ -3,6 +3,29 @@ require "conexion.php";
 $sql = "SELECT * FROM v_reservaGeneral";
 $resultado = $mysqli->query($sql);
 
+if (($admin["fk_codCategoria"] == "CEM-JEF")) {
+
+    echo '<script>
+
+    Swal.fire({
+            icon:"error",
+              title: "¡Lo sentimos!",
+              text: "Usted no tiene acceso a esta sección",
+              showConfirmButton: true,
+            confirmButtonText: "Cerrar"
+          
+    }).then(function(result){
+
+            if(result.value){   
+                window.location = "inicio";
+              } 
+    });
+
+</script>';
+
+    return;
+}
+
 ?>
 <div class="content-wrapper" style="min-height: 1761.5px;">
     <!-- Content Header (Page header) -->

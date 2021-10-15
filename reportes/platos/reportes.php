@@ -17,7 +17,7 @@ class PDF extends FPDF
         $this->Ln(20);
 
         $this->Cell(80);
-        $this->Cell(30, 15, 'Reporte de las reservas', 0, 0, 'C');
+        $this->Cell(30, 15, 'Reporte de los platos', 0, 0, 'C');
         $this->Ln(10);
 
         $this->Cell(80);
@@ -25,13 +25,12 @@ class PDF extends FPDF
         // Salto de línea
         $this->Ln(20);
 
-        $this->Cell(18, 6, utf8_decode('Código'), 1, 0, 'C', 0);
-        $this->Cell(38, 6, 'Cliente', 1, 0, 'C', 0);
-        $this->Cell(20, 6, utf8_decode('Teléfono'), 1, 0, 'C', 0);
-        $this->Cell(35, 6, utf8_decode('Dirección'), 1, 0, 'C', 0);
-        $this->Cell(38, 6, 'Empleado', 1, 0, 'C', 0);
-        $this->Cell(18, 6, utf8_decode('Turno'), 1, 0, 'C', 0);
-        $this->Cell(30, 6, 'Horario', 1, 1, 'C', 0);
+        $this->Cell(20);
+        $this->Cell(25, 6, utf8_decode('Código'), 1, 0, 'C', 0);
+        $this->Cell(38, 6, 'Plato', 1, 0, 'C', 0);
+        $this->Cell(20, 6, utf8_decode('Precio'), 1, 0, 'C', 0);
+        $this->Cell(35, 6, utf8_decode('Especialidad'), 1, 0, 'C', 0);
+        $this->Cell(38, 6, 'Tipo', 1, 1, 'C', 0);
     }
 
     // Pie de página
@@ -47,7 +46,7 @@ class PDF extends FPDF
 }
 
 require '../../conexion.php';
-$consulta1 = "SELECT * FROM v_reservas";
+$consulta1 = "SELECT * FROM v_platos";
 $resultado1 = $mysqli->query($consulta1);
 
 
@@ -57,12 +56,11 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 8);
 while ($mostrar = $resultado1->fetch_array(MYSQLI_ASSOC)) {
-    $pdf->Cell(18, 6, $mostrar['codReserva'], 1, 0, 'L', 0);
-    $pdf->Cell(38, 6, utf8_decode($mostrar['Cliente']), 1, 0, 'L', 0);
-    $pdf->Cell(20, 6, $mostrar['TelefonoCliente'], 1, 0, 'L', 0);
-    $pdf->Cell(35, 6, utf8_decode($mostrar['DireccionCliente']), 1, 0, 'C', 0);
-    $pdf->Cell(38, 6, utf8_decode($mostrar['Empleado']), 1, 0, 'L', 0);
-    $pdf->Cell(18, 6, $mostrar['descripcion'], 1, 0, 'C', 0);
-    $pdf->Cell(30, 6, $mostrar['Horario'], 1, 1, 'L', 0);
+    $pdf->Cell(20);
+    $pdf->Cell(25, 6, $mostrar['codPlato'], 1, 0, 'C', 0);
+    $pdf->Cell(38, 6, utf8_decode($mostrar['nombrePlato']), 1, 0, 'C', 0);
+    $pdf->Cell(20, 6, $mostrar['precio'], 1, 0, 'C', 0);
+    $pdf->Cell(35, 6, utf8_decode($mostrar['especialidad']), 1, 0, 'C', 0);
+    $pdf->Cell(38, 6, utf8_decode($mostrar['tipo']), 1, 1, 'C', 0);
 }
 $pdf->Output();

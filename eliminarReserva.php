@@ -86,7 +86,7 @@ $resultado7 = $mysqli->query($sql7);
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2">
-                        <a href="platos" class="btn btn-primary">Regresar</a>
+                        <a href="detallereservas" class="btn btn-primary">Regresar</a>
                     </div>
                 </div>
             </div>

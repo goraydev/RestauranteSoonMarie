@@ -38,7 +38,7 @@ class ModeloReservas
         $respuesta = $mysqli->query($sql);
         if ($respuesta) {
             while ($row = $respuesta->fetch_array(MYSQLI_ASSOC)) {
-                echo "<option value='" . $row['DNI'] . "'>" . $row['usuario']. "</option>";
+                echo "<option value='" . $row['DNI'] . "'>" . $row['usuario'] . "</option>";
             }
         } else {
             echo "sin empleados disponibles";
