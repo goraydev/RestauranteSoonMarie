@@ -18,7 +18,7 @@ En una última reunión acuerdan que, además de administrar las reservas y empl
 
 <hr>
 <strong>En esta versión se cumple con todo el caso a excepción de que pueda pedir distintos platos</strong>
-<img align="center" src="vistas/readme/inicio.jpg">
+<img align="center" src="https://postimg.cc/jCSxbWzv">
 <img align="center" src="vistas/readme/reportes.jpg">
 <img align="center" src="vistas/readme/Gestor_empleado.jpg">
 <img align="center" src="vistas/readme/formulario_nuevoEmpleado.jpg">
