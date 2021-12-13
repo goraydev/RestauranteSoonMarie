@@ -18,9 +18,11 @@ En una última reunión acuerdan que, además de administrar las reservas y empl
 
 <hr>
 <strong>En esta versión se cumple con todo el caso a excepción de que pueda pedir distintos platos</strong>
-<img align="center" src="vistas/readme/inicio.jpg">
-<img align="center" src="vistas/readme/reportes.jpg">
-<img align="center" src="vistas/readme/Gestor_empleado.jpg">
-<img align="center" src="vistas/readme/formulario_nuevoEmpleado.jpg">
-<img align="center" src="vistas/readme/gestor de reservas.jpg">
-<img align="center" src="vistas/readme/fomulario_nuevaReserva.jpg">
+<img align="center" src="https://i.postimg.cc/xT584QKt/inicio.jpg">
+<img align="center" src="https://i.postimg.cc/mgrkxnjR/reportes.jpg">
+<img align="center" src="https://i.postimg.cc/9fRf0qsn/gestor-de-reservas.jpg">
+<img align="center" src="https://i.postimg.cc/zGPBqk2h/Gestor-empleados.jpg">
+<img align="center" src="https://i.postimg.cc/yYsWjxSD/fomulario-nuevo-Empleado.jpg">
+<img align="center" src="https://i.postimg.cc/9fRf0qsn/gestor-de-reservas.jpg">
+<img align="center" src="https://i.postimg.cc/tRhYFW70/fomulario-nueva-Reserva.jpg">
+
