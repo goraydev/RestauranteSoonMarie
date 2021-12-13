@@ -1,5 +1,5 @@
 <h1 align="center">Restaurante Soon Marie</h1>
-<i>Versión 1.0.0</i>
+<i>Versión 1.0.1</i>
 <h2>Caso</h2>
 <p align="center">"Restaurante SoonMarie" es un pequeño restaurante de comida tradicional del Perú, ubicada en la ciudad de Arequipa, que realiza su gestión de manera manual y con poco uso de las Tecnologías de la Información y las
 Comunicaciones. Su nueva gerente, Valeria, se ha reunido con el Jefe de Cocina, Gastón, y la encargada del comedor, Sonia, para analizar las posibilidades de automatizar y gestionar de manera más eficaz algunos de los procesos del Restaurante.
