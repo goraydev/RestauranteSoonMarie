@@ -17,7 +17,8 @@ En una segunda reunión, se decide que administrar los datos de los empleados es
 En una última reunión acuerdan que, además de administrar las reservas y empleados, es necesario almacenar en su base de datos las especialidades (cocina regional, cocina internacional, cocina peruana, cocina, italiana, cocina regional, etc) y los platos que ofrece, sabiendo que éstos pueden ser de un tipo (Pastas, Postres, Sopas, Mariscos, ect), es claro que se debe administrar el precio de cada uno de estos platos. Finalmente, acuerdan que la base de datos debe permitirme administrar las reservas, quienes realizaron las reservas y que platos solicitaron las reservas.</p>
 
 <hr>
-<strong>En esta versión se cumple con todo el caso a excepción de que pueda pedir distintos platos</strong>
+<strong align="center">En esta versión se cumple con todo el caso a excepción de que pueda pedir distintos platos</strong>
+<p><b>Nota: </b>la clave del administrador es valeria123, del resto de usuarios la clave y el nombre de usuario la puede actualizar el administrador</p>
 
 <img align="center" src="https://i.postimg.cc/xT584QKt/inicio.jpg">
 <img align="center" src="https://i.postimg.cc/mgrkxnjR/reportes.jpg">
@@ -25,5 +26,3 @@ En una última reunión acuerdan que, además de administrar las reservas y empl
 <img align="center" src="https://i.postimg.cc/yYsWjxSD/fomulario-nuevo-Empleado.jpg">
 <img align="center" src="https://i.postimg.cc/9fRf0qsn/gestor-de-reservas.jpg">
 <img align="center" src="https://i.postimg.cc/tRhYFW70/fomulario-nueva-Reserva.jpg">
-
-
