@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center">Restaurante Soon Marie</h1>
 <i>Versión 1.0.0</i>
 <h2>Caso</h2>
@@ -26,7 +25,5 @@ En una última reunión acuerdan que, además de administrar las reservas y empl
 <img align="center" src="https://i.postimg.cc/yYsWjxSD/fomulario-nuevo-Empleado.jpg">
 <img align="center" src="https://i.postimg.cc/9fRf0qsn/gestor-de-reservas.jpg">
 <img align="center" src="https://i.postimg.cc/tRhYFW70/fomulario-nueva-Reserva.jpg">
-=======
-# RestauranteSoonMarie
-Sistema de reservas para el restaurante Soon Marie
->>>>>>> 213ff024768e212bb55b0b4834c60d26e010ccf4
+
+
