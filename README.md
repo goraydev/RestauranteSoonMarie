@@ -26,7 +26,6 @@ En una última reunión acuerdan que, además de administrar las reservas y empl
 <img align="center" src="https://i.postimg.cc/yYsWjxSD/fomulario-nuevo-Empleado.jpg">
 <img align="center" src="https://i.postimg.cc/9fRf0qsn/gestor-de-reservas.jpg">
 <img align="center" src="https://i.postimg.cc/tRhYFW70/fomulario-nueva-Reserva.jpg">
-<div align="center">
-<img align="left" src="https://i.postimg.cc/TY5LhFm9/responsive-restaurant.jpg">
-<img align="right" src="https://i.postimg.cc/YCfSWHS1/responsive-2.jpg">
-</div>
+<img align="center" src="https://i.postimg.cc/TY5LhFm9/responsive-restaurant.jpg">
+<img align="center" src="https://i.postimg.cc/YCfSWHS1/responsive-2.jpg">
+
