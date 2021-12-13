@@ -3,7 +3,7 @@ header("Content-Type: application/xls");
 header("Content-Disposition: attachment; filename=clientes.xls");
 ?>
 <?php
-require '../conexion.php';
+require '../../conexion.php';
 $sql = "SELECT * FROM v_clientes";
 $resultado = $mysqli->query($sql);
 
@@ -13,8 +13,8 @@ $resultado = $mysqli->query($sql);
 		<tr>
 			<th>Codigo</th>
 			<th>Clientes</th>
-			<th>Teléfono</th>
-			<th>Dirección</th>
+			<th>Telefono</th>
+			<th>Direccion</th>
 		</tr>
 	</thead>
 
